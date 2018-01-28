@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import HomePage from '@/components/HomePage'
-import ArticleList from '@/components/ArticleList'
-import ArticleArea from '@/components/ArticleArea'
-import error from '@/components/404'
-import tag from '@/components/Tag'
-import Category from '@/components/Category'
-import TimeLine from '@/components/TimeLine'
+import HelloWorld from '@/views/HelloWorld'
+import HomePage from '@/views/HomePage'
+import ArticleList from '@/views/ArticleList'
+import ArticleArea from '@/views/ArticleArea'
+import error from '@/views/404'
+import tag from '@/views/Tag'
+import Category from '@/views/Category'
+import TimeLine from '@/views/TimeLine'
 
 
 Vue.use(Router)

@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'pageSidebar'
+  name: 'sidebar'
 }
 </script>
 

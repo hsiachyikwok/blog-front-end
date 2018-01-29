@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/views/HelloWorld'
 import HomePage from '@/views/HomePage'
 import ArticleList from '@/views/ArticleList'
 import ArticleArea from '@/views/ArticleArea'
 import error from '@/views/404'
-import tag from '@/views/Tag'
-import Category from '@/views/Category'
+import tag from '@/views/tag'
+import Category from '@/views/category'
 import TimeLine from '@/views/TimeLine'
-
 
 Vue.use(Router)
 

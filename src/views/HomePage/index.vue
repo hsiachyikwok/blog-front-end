@@ -1,12 +1,12 @@
 <template>
 <div class="main">
-  <page-sidebar></page-sidebar>
+  <pageSidebar></pageSidebar>
   <router-view></router-view>
 </div>
 </template>
 
 <script>
-import pageSidebar from './SiderBar'
+import pageSidebar from '../sidebar'
 export default {
   name: 'Layout',
   // component properties

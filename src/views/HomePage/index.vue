@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import pageSidebar from '../sidebar'
+import pageSidebar from '@/views/sidebar'
 export default {
   name: 'Layout',
   // component properties

@@ -27,6 +27,7 @@
 </template>
 <script>
 import VueMarkdown from 'vue-markdown'
+import api from '@/api'
 export default {
   name: 'ArticleList',
   data() {
@@ -39,6 +40,9 @@ export default {
   },
   components: {
     VueMarkdown
+  },
+  mounted(){
+    api.article.getArticleList();
   }
 }
 </script>

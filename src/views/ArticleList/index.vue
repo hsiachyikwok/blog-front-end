@@ -42,7 +42,7 @@ export default {
     VueMarkdown
   },
   mounted(){
-    api.article.getArticleList();
+    api.article.getArticleList()
   }
 }
 </script>

@@ -31,7 +31,7 @@
     <hr class="style-two">
   </div>
   <footer>
-    君子性非异也，善假于物也
+    hsiachyikwok'blog since ©2018
   </footer>
 </div>
 </template>

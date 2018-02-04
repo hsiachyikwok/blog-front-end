@@ -7,6 +7,7 @@ import error from '@/views/404'
 import tag from '@/views/tag'
 import Category from '@/views/category'
 import TimeLine from '@/views/TimeLine'
+import admin from '@/views/admin'
 
 Vue.use(Router)
 
@@ -48,6 +49,10 @@ export default new Router({
     {
       path : '/404',
       component:error
+    },
+    {
+      path: '/admin',
+      component:admin
     },
     {
       path:'*',

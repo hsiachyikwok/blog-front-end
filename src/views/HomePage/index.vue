@@ -1,24 +1,80 @@
 <template>
 <div class="main">
-  <pageSidebar></pageSidebar>
-  <router-view></router-view>
+  <div class="aside">
+    <div>
+      <router-link to="/">leapxia'notes</router-link>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+      搜索
+      <hr class="style-two">
+    </div>
+    <div>
+      归档
+      <hr class="style-two">
+    </div>
+    <div>
+      <router-link to="/tag">标签</router-link>
+      <hr class="style-two">
+    </div>
+    <div>
+      分类
+      <hr class="style-two">
+    </div>
+    <div>
+      时光轴
+      <hr class="style-two">
+    </div>
+    <div>
+      友链
+      <hr class="style-two">
+    </div>
+    <footer>
+      hsiachyikwok'blog since ©2018
+    </footer>
+  </div>
+  <div class="content">
+    <div v-for="n in 5" class="article-item">
+      <mu-card>
+        <mu-card-header title="hsiachyikwok" subTitle="2018-1-10">
+          <mu-avatar src="http://img1.imgtn.bdimg.com/it/u=586723545,3678636448&fm=27&gp=0.jpg" />
+        </mu-card-header>
+        <mu-card-title title="vue项目搭建" subTitle="vue.js" />
+        <mu-card-text>
+          <vue-markdown>{{aa}}</vue-markdown>
+        </mu-card-text>
+        <mu-card-actions>
+          <!--<mu-flat-button label="更多"/>-->
+          <router-link to="/article">
+            <mu-flat-button label="更多" />
+          </router-link>
+        </mu-card-actions>
+      </mu-card>
+    </div>
+    <div class="page">
+      <!--<vue-markdown>### ddd</vue-markdown>-->
+    </div>
+  </div>
 </div>
 </template>
 
 <script>
-import pageSidebar from '@/views/sidebar'
+import VueMarkdown from 'vue-markdown'
 export default {
-  name: 'Layout',
   // component properties
   props: {},
   // variables
   data() {
-    return {}
+    return {
+      aa:'## ddd'
+    }
   },
   computed: {},
   // when component uses other components
   components: {
-    pageSidebar
+    VueMarkdown
   },
   // methods
   watch: {},

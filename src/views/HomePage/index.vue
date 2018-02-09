@@ -1,13 +1,43 @@
 <template>
 <v-app>
-  <v-toolbar app>
-    <v-layout>
-      <v-avatar>
-        <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
-      </v-avatar>
-      <v-toolbar-title>ddd</v-toolbar-title>
-    </v-layout>
+  <v-toolbar>
+    <v-avatar>
+      <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
+    </v-avatar>
+    <v-toolbar-title>Hsia'blog</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <!-- 导航栏 -->
+    <v-btn icon>
+        <v-icon large>pets</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon large>label</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon large>archive</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon large>home</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon large>favorite</v-icon>
+    </v-btn>
+    <v-spacer></v-spacer>
+    <!-- 头像和标题 -->
+    <v-btn icon>
+      <v-icon>search</v-icon>
+    </v-btn>
+    <v-text-field name="search" label="搜索" id="search">
+    </v-text-field>
+    <!-- 导航项目 -->
+
+    <!-- 搜索框 -->
   </v-toolbar>
+
+
+
+
+
   <v-content>
     <v-container fluid>
       <v-layout>
@@ -16,9 +46,7 @@
           <v-content>
             <v-container elevation-1>
               <v-layout>
-                <v-flex elevation-2>
-                  ddddd
-                </v-flex>
+                ddd
               </v-layout>
             </v-container>
           </v-content>
@@ -28,7 +56,7 @@
         <v-flex>
           <v-content>
             <!-- 循环文章列表 -->
-            <v-flex v-for="n in 5" :key=n mb-5>
+            <v-flex v-for="n in 5" :key=n mb-3>
               <v-card>
                 <v-card-title primary-title>
                   <div>
@@ -47,7 +75,11 @@
           </v-content>
           <!-- 分页器 -->
           <v-content>
-           <v-pagination :length="6" v-model="page"></v-pagination>
+            <v-container>
+              <v-layout justify-center>
+                <v-pagination :length="6" v-model="page"></v-pagination>
+              </v-layout>
+            </v-container>
           </v-content>
           <!-- 分页器 -->
 
@@ -72,7 +104,7 @@
 
   <hr/>
   <!-- 下半部分 -->
-  <v-content>
+  <!-- <v-content>
     <v-container fluid>
       <v-layout>
         <v-flex elevation-1>
@@ -80,13 +112,13 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-content>
+  </v-content> -->
   <!-- 下半部分 -->
 
   <v-footer height="auto">
     <v-layout row wrap justify-center>
       <v-flex xs12 py-3 text-xs-center darken-3--text>
-        &copy; 2018 <strong>designed by hsiachyikwok</strong>
+        &copy; 2018 <strong>powered by vuetify</strong>
       </v-flex>
     </v-layout>
   </v-footer>

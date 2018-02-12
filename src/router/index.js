@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/views/HomePage'
+import homepage from '@/views/homepage'
 import article from '@/views/article'
 import error from '@/views/404'
 import tag from '@/views/tag'
-import Category from '@/views/category'
+import category from '@/views/category'
 import admin from '@/views/admin'
 import about from '@/views/about'
 
@@ -15,8 +15,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HomePage',
-      component: HomePage,
+      name: 'homepage',
+      component: homepage,
     },
     {
       path:'/article',
@@ -29,7 +29,7 @@ export default new Router({
     },
     {
       path :'/category',
-      component:Category
+      component:category
     },
     {
       path : '/404',

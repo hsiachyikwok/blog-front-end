@@ -14,6 +14,11 @@
 </template>
 <script>
 export default {
-  name: 'rightsidebar'
+  name: 'rightsidebar',
+  data(){
+    return{
+      notice:`dsfs`
+    }
+  }
 }
 </script>

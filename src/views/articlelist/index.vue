@@ -25,6 +25,12 @@
 
 <script>
 export default {
-  name: 'articlelist'
+  name: 'articlelist',
+  data() {
+    return {
+      notice: `eqweqw`,
+      page: 1
+    }
+  }
 }
 </script>

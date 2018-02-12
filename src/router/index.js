@@ -7,45 +7,49 @@ import tag from '@/views/tag'
 import category from '@/views/category'
 import admin from '@/views/admin'
 import about from '@/views/about'
+import articlelist from '@/views/articlelist'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  routes: [
-    {
+  routes: [{
       path: '/',
-      name: 'homepage',
+      name: 'layout',
       component: homepage,
+      children: [{
+        path: '/homepage',
+        name: 'homepage',
+        component: articlelist,
+      }, {
+        path: '/article',
+        name: 'article',
+        component: article,
+      }]
     },
     {
-      path:'/article',
-      name:'article',
-      component:article
+      path: '/tag',
+      component: tag
     },
     {
-      path :'/tag',
-      component:tag
+      path: '/category',
+      component: category
     },
     {
-      path :'/category',
-      component:category
-    },
-    {
-      path : '/404',
-      component:error
+      path: '/404',
+      component: error
     },
     {
       path: '/admin',
-      component:admin
+      component: admin
     },
     {
       path: '/about',
-      component:about
+      component: about
     },
     {
-      path:'*',
-      redirect : '/404'
+      path: '*',
+      redirect: '/404'
     }
   ]
 })

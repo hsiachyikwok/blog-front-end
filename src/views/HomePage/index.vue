@@ -7,19 +7,19 @@
     <v-toolbar-title>Hsia'Blog</v-toolbar-title>
     <v-flex ml-5>
       <v-btn icon>
-        <v-icon large>pets</v-icon>
+        <v-icon standard color="green darken-2">fa-github</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon large>label</v-icon>
+        <v-icon standard color="green darken-2">label</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon large>archive</v-icon>
+        <v-icon standard>archive</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon large>home</v-icon>
+        <v-icon standard>home</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon large>favorite</v-icon>
+        <v-icon standard>favorite</v-icon>
       </v-btn>
     </v-flex>
     <v-spacer></v-spacer>
@@ -51,26 +51,24 @@
         <v-flex xs6>
           <v-container>
             <v-layout column>
-              <v-flex v-for="n in 3" :key=n mb-3>
+              <v-flex v-for="n in 3" :key=n mb-3 text-xs-left>
                 <v-card>
                   <!-- <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
                   </v-card-media> -->
                   <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                      <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
-                    </div>
+                    文章标题
                   </v-card-title>
+                  <v-card-text v-text="notice"></v-card-text>
                   <v-divider></v-divider>
                   <v-card-actions>
-                    <v-btn flat color="orange">Share</v-btn>
-                    <v-btn flat color="orange">Explore</v-btn>
+                    <v-btn flat color="orange">分享</v-btn>
+                    <v-btn flat color="orange">阅读更多</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-flex>
-              <flex>
+              <v-flex>
                 <v-pagination :length="6" v-model="page"></v-pagination>
-              </flex>
+              </v-flex>
             </v-layout>
           </v-container>
         </v-flex>
@@ -91,13 +89,13 @@
       </v-layout>
     </v-container>
     <hr/>
-    <v-container fluid grid-list-md text-xs-center>
+    <!-- <v-container fluid grid-list-md text-xs-center>
       <v-layout>
         <v-flex>
           下半部分
         </v-flex>
       </v-layout>
-    </v-container>
+    </v-container> -->
   </v-content>
 
   <v-footer height="auto" app>
@@ -114,7 +112,8 @@
 import VueMarkdown from 'vue-markdown'
 export default {
   data: () => ({
-      notice: '迁移博客到自造的小轮子~'
+      notice: '迁移博客到自造的小轮子~',
+      page:1
     }),
   components: {
     VueMarkdown

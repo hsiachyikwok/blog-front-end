@@ -23,7 +23,6 @@
       </v-btn>
     </v-flex>
     <v-spacer></v-spacer>
-    <!-- 头像和标题 -->
     <v-btn icon>
       <v-icon>search</v-icon>
     </v-btn>
@@ -39,18 +38,11 @@
             <v-layout column>
               <v-flex>
                 <v-card>
-                  <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
-                  </v-card-media>
-                  <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                      <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <v-btn flat color="orange">Share</v-btn>
-                    <v-btn flat color="orange">Explore</v-btn>
-                  </v-card-actions>
+                  <v-avatar size="100px">
+                    <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg">
+                  </v-avatar>
+                  <v-divider></v-divider>
+                  dd
                 </v-card>
               </v-flex>
             </v-layout>
@@ -61,14 +53,15 @@
             <v-layout column>
               <v-flex v-for="n in 3" :key=n mb-3>
                 <v-card>
-                  <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
-                  </v-card-media>
+                  <!-- <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
+                  </v-card-media> -->
                   <v-card-title primary-title>
                     <div>
                       <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
                       <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
                     </div>
                   </v-card-title>
+                  <v-divider></v-divider>
                   <v-card-actions>
                     <v-btn flat color="orange">Share</v-btn>
                     <v-btn flat color="orange">Explore</v-btn>
@@ -85,22 +78,11 @@
           <v-container>
             <v-layout column>
               <v-flex>
-                公告
+                <strong>公告</strong>
               </v-flex>
-              <v-flex>
+              <v-flex text-xs-left>
                 <v-card>
-                  <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
-                  </v-card-media>
-                  <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                      <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <v-btn flat color="orange">Share</v-btn>
-                    <v-btn flat color="orange">Explore</v-btn>
-                  </v-card-actions>
+                  <v-card-text v-text="notice"></v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -131,6 +113,9 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 export default {
+  data: () => ({
+      notice: '迁移博客到自造的小轮子~'
+    }),
   components: {
     VueMarkdown
   }

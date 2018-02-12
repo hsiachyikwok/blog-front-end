@@ -6,6 +6,7 @@ import error from '@/views/404'
 import tag from '@/views/tag'
 import Category from '@/views/category'
 import admin from '@/views/admin'
+import about from '@/views/about'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export default new Router({
     {
       path: '/admin',
       component:admin
+    },
+    {
+      path: '/about',
+      component:about
     },
     {
       path:'*',

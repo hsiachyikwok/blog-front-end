@@ -7,10 +7,10 @@
     <v-toolbar-title>Hsia'Blog</v-toolbar-title>
     <v-flex ml-5>
       <v-btn icon>
-        <v-icon standard color="green darken-2">fa-github</v-icon>
+        <v-icon standard>fa-anchor</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon standard color="green darken-2">label</v-icon>
+        <v-icon standard>label</v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon standard>archive</v-icon>
@@ -38,11 +38,35 @@
             <v-layout column>
               <v-flex>
                 <v-card>
-                  <v-avatar size="100px">
-                    <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg">
-                  </v-avatar>
+                  <v-flex mb-3>
+                    <v-avatar size="100px">
+                      <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg">
+                    </v-avatar>
+                  </v-flex>
+                  <v-flex mb-3>
+                    <strong>君子性非异也，善假于物也。</strong>
+                  </v-flex>
+                  <v-flex>
+                    china-chengdu
+                  </v-flex>
                   <v-divider></v-divider>
-                  dd
+                  <v-flex>
+                    <v-btn icon>
+                      <v-icon standard>fa-anchor</v-icon>
+                    </v-btn>
+                    <v-btn icon>
+                      <v-icon standard>label</v-icon>
+                    </v-btn>
+                    <v-btn icon>
+                      <v-icon standard>archive</v-icon>
+                    </v-btn>
+                    <v-btn icon>
+                      <v-icon standard>home</v-icon>
+                    </v-btn>
+                    <v-btn icon>
+                      <v-icon standard>favorite</v-icon>
+                    </v-btn>
+                  </v-flex>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -56,7 +80,7 @@
                   <!-- <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
                   </v-card-media> -->
                   <v-card-title primary-title>
-                    文章标题
+                    <h3>文章标题</h3>
                   </v-card-title>
                   <v-card-text v-text="notice"></v-card-text>
                   <v-divider></v-divider>
@@ -112,9 +136,11 @@
 import VueMarkdown from 'vue-markdown'
 export default {
   data: () => ({
-      notice: '迁移博客到自造的小轮子~',
-      page:1
-    }),
+    notice: `迁移博客到自造的小轮子~ 1111111111111111111111111111
+      1111111111111111111111111111
+      111111111111111111111111111111111`,
+    page: 1
+  }),
   components: {
     VueMarkdown
   }

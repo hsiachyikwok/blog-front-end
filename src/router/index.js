@@ -8,6 +8,7 @@ import category from '@/views/category'
 import admin from '@/views/admin'
 import about from '@/views/about'
 import articlelist from '@/views/articlelist'
+import archive from '@/views/archive'
 
 Vue.use(Router)
 
@@ -50,6 +51,10 @@ export default new Router({
     {
       path: '/about',
       component: about
+    },
+    {
+      path: '/archive',
+      component: archive
     },
     {
       path: '*',

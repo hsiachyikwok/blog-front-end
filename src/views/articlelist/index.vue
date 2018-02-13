@@ -7,18 +7,15 @@
           </v-card-media> -->
         <v-card-title primary-title>
           <v-flex text-xs-center>
-            <h3>手把手教你撸一个博客系统</h3>
-            2018 2-13 views:100
+            <h3>手把手教你撸一个博客系统</h3> 2018 2-13 views:100
           </v-flex>
         </v-card-title>
         <v-card-text v-text="notice"></v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-icon small color="green">fa-tag</v-icon>
-          <a herf="www">springboot</a>
-          ,
-          <a herf="www">vue</a>
-          ,
+          <a herf="www">springboot</a> ,
+          <a herf="www">vue</a> ,
           <a herf="www">springcloud</a>
           <v-spacer></v-spacer>
           <v-btn flat color="orange" @click.native="$router.push({name: 'article', params: {id: 'springboot'}})">阅读更多</v-btn>
@@ -26,7 +23,8 @@
       </v-card>
     </v-flex>
     <v-flex>
-      <v-pagination :length="6" v-model="page"></v-pagination>
+      <v-pagination :length="5" v-model="page">
+      </v-pagination>
     </v-flex>
   </v-layout>
 </v-container>

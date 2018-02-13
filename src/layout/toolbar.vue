@@ -6,19 +6,19 @@
   <v-toolbar-title>Hsia'Blog</v-toolbar-title>
   <v-flex ml-5>
     <v-btn icon>
-      <v-icon standard>fa-anchor</v-icon>
+      <v-icon small>fa-h-square</v-icon>
     </v-btn>
     <v-btn icon>
-      <v-icon standard>label</v-icon>
+      <v-icon small>fa-archive</v-icon>
     </v-btn>
     <v-btn icon>
-      <v-icon standard>archive</v-icon>
+      <v-icon small>fa-tags</v-icon>
     </v-btn>
     <v-btn icon>
-      <v-icon standard>home</v-icon>
+      <v-icon small>fa-cube</v-icon>
     </v-btn>
     <v-btn icon>
-      <v-icon standard>favorite</v-icon>
+      <v-icon small>fa-user-secret</v-icon>
     </v-btn>
   </v-flex>
   <v-spacer></v-spacer>

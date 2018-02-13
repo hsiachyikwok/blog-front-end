@@ -17,19 +17,13 @@
         <v-divider></v-divider>
         <v-flex>
           <v-btn icon>
-            <v-icon standard>fa-anchor</v-icon>
+            <v-icon small>fa-envelope</v-icon>
           </v-btn>
           <v-btn icon>
-            <v-icon standard>label</v-icon>
+            <v-icon small>fa-github</v-icon>
           </v-btn>
           <v-btn icon>
-            <v-icon standard>archive</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon standard>home</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon standard>favorite</v-icon>
+            <v-icon standard>fa-rss-square</v-icon>
           </v-btn>
         </v-flex>
       </v-card>

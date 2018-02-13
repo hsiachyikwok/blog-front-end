@@ -11,7 +11,13 @@
         <v-card-text v-text="notice"></v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
-          <v-btn flat color="orange">分享</v-btn>
+          <v-icon small color="green">fa-tag</v-icon>
+          <a herf="www">springboot</a>
+          ,
+          <a herf="www">vue</a>
+          ,
+          <a herf="www">springcloud</a>
+          <v-spacer></v-spacer>
           <v-btn flat color="orange" @click.native="$router.push({name: 'article', params: {id: 'springboot'}})">阅读更多</v-btn>
         </v-card-actions>
       </v-card>

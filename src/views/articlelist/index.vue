@@ -12,7 +12,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-btn flat color="orange">分享</v-btn>
-          <v-btn flat color="orange">阅读更多</v-btn>
+          <v-btn flat color="orange" @click.native="$router.push({name: 'article', params: {id: 312}})">阅读更多</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>

@@ -18,10 +18,10 @@ export default new Router({
       path: '/',
       name: 'layout',
       component: homepage,
-      redirect:'/homepage',
+      redirect:'/index',
       children: [
         {
-        path: '/homepage',
+        path: '/index',
         name: 'homepage',
         component: articlelist,
       },

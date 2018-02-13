@@ -4,7 +4,7 @@
     <v-flex text-xs-left>
       <v-card>
         <v-card-text>
-          <vue-markdown :source="content" v-highlight></vue-markdown>
+          <vue-markdown v-highlightjs :source="content"></vue-markdown>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -20,7 +20,7 @@ import comment from './comment'
 export default {
   data() {
     return {
-      content: ""
+      content: "fffff"
     }
   },
   components: {

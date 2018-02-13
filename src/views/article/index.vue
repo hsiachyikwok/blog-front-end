@@ -4,7 +4,7 @@
     <v-flex text-xs-left>
       <v-card>
         <v-card-text>
-          <vue-markdown :source="content"></vue-markdown>
+          <vue-markdown :source="content" v-highlight></vue-markdown>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -29,8 +29,6 @@ export default {
   },
   mounted() {
     api.article.getArticle(1).then(res=>{
-      console.log(111111)
-      console.log(res.body.content)
       this.content = res.body.content
     },error=>console.log(error)
   )

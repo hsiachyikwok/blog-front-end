@@ -9,11 +9,13 @@
       </v-card>
     </v-flex>
   </v-layout>
+  <comment></comment>
 </v-container>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import comment from './comment'
 export default {
   data() {
     return {
@@ -21,7 +23,8 @@ export default {
     }
   },
   components: {
-    VueMarkdown
+    VueMarkdown,
+    comment
   }
 }
 </script>

@@ -9,22 +9,31 @@
       </v-card>
     </v-flex>
   </v-layout>
-  <comment></comment>
+  <!-- <comment></comment> -->
 </v-container>
 </template>
 
 <script>
+import api from '@/api'
 import VueMarkdown from 'vue-markdown'
 import comment from './comment'
 export default {
   data() {
     return {
-      content: "# fdsfsfsf"
+      content: ""
     }
   },
   components: {
     VueMarkdown,
     comment
+  },
+  mounted() {
+    api.article.getArticle(1).then(res=>{
+      console.log(111111)
+      console.log(res.body.content)
+      this.content = res.body.content
+    },error=>console.log(error)
+  )
   }
 }
 </script>

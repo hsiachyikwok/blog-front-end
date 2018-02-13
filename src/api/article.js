@@ -1,19 +1,23 @@
 import service from './resource'
 
 export default {
-  getArticleListByState(){
+  getArticleListByState() {
     return service.get('/article/list')
   },
 
-  addArticle(data){
-    return service.post('/article/add',data)
+  getArticle(id) {
+    return service.get('/article/' + id)
   },
 
-  updateArticle(data){
-    return service.put('/article/update',data)
+  addArticle(data) {
+    return service.post('/article/add', data)
   },
 
-  delArticle(id){
-    return service.delete('/article/'+'id')
+  updateArticle(data) {
+    return service.put('/article/update', data)
+  },
+
+  delArticle(id) {
+    return service.delete('/article/' + id)
   }
 }

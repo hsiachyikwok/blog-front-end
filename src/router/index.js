@@ -55,7 +55,21 @@ export default new Router({
     },
     {
       path: '/admin',
-      component: admin
+      component: admin,
+      children :[
+        {
+          path: '/admin/articlemanage',
+          component: articlemanage,
+        },
+        {
+          path: '/admin/settingsmanage',
+          component: settingsmanage,
+        },
+        {
+          path: '/admin/commentmanage',
+          component: commentmanage,
+        }
+      ]
     },
     {
       path: '/404',

@@ -1,7 +1,7 @@
 <template>
 <v-container fluid fill-height>
   <v-layout justify-center align-center>
-    <router-view/>
+    commentmanage
   </v-layout>
 </v-container>
 </template>

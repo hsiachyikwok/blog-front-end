@@ -1,9 +1,16 @@
 <template>
 <v-container>
   <v-layout>
-    <v-flex text-xs-left>
+    <v-flex text-xs-center>
       <v-card>
-dddd
+        <div v-for="n in 10">
+          <div>
+            <h1>2018</h1>
+          </div>
+          <div v-for="n in 3">
+            vue js 入门
+          </div>
+        </div>
       </v-card>
     </v-flex>
   </v-layout>
@@ -13,7 +20,6 @@ dddd
 export default {
   data() {
     return {
-      content: "## 技术思考"
     }
   }
 

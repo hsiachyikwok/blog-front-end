@@ -1,7 +1,7 @@
 <template>
 <v-container>
   <v-layout>
-    <v-flex elevation-1 mt-1>
+    <v-flex elevation-1 mt-1 ml-1 mr-1>
       <v-chip :key=n v-for="n in 20">
         <v-avatar class="teal">J</v-avatar>
         Java

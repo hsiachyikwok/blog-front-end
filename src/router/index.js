@@ -9,11 +9,12 @@ import admin from '@/views/admin'
 import about from '@/views/about'
 import articlelist from '@/views/articlelist'
 import archive from '@/views/archive'
+import login from '@/views/login'
 
 Vue.use(Router)
 
 export default new Router({
-  //mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -56,6 +57,10 @@ export default new Router({
     {
       path: '/admin',
       component: admin
+    },
+    {
+      path: '/login',
+      component: login
     },
     {
       path: '*',

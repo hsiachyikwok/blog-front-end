@@ -54,6 +54,14 @@ export default {
       {
         text: 'springcloud',
         href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
       }
     ];
     this.setTags(tags)

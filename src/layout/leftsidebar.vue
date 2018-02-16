@@ -26,6 +26,13 @@
             <v-icon standard>fa-rss-square</v-icon>
           </v-btn>
         </v-flex>
+        <v-divider></v-divider>
+        <v-flex mt-3>
+          <strong>友链</strong>
+        </v-flex>
+        <v-flex  :key = n v-for="n in 3">
+          dddddd
+        </v-flex>
       </v-card>
     </v-flex>
   </v-layout>

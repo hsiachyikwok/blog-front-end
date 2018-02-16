@@ -20,12 +20,12 @@ import comment from './comment'
 export default {
   data() {
     return {
-      content: "fffff"
+      content: ""
     }
   },
   components: {
     VueMarkdown,
-    comment
+    comment,
   },
   mounted() {
     api.article.getArticle(1).then(res=>{

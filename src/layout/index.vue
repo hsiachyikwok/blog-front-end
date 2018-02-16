@@ -16,8 +16,8 @@
       </v-layout>
     </v-container>
     <hr/>
-    <v-container fluid grid-list-md text-xs-center>
-      <bottom></bottom>
+    <v-container  fluid grid-list-md text-xs-center>
+      <!-- <bottom></bottom> -->
     </v-container>
   </v-content>
   <app-footer></app-footer>

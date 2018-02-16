@@ -18,7 +18,7 @@ export default {
   name: 'tagcloud',
   data() {
     return {
-      width: 500,
+      width: 600,
       height: 500,
       RADIUS: 200,
       speedX: Math.PI / 360,

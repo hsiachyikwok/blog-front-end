@@ -27,9 +27,16 @@
     <v-flex>
       <tag-cloud></tag-cloud>
     </v-flex> -->
+    <v-flex>
+      <v-fab-transition>
+        <v-btn color="pink" dark fab bottom right fixed v-show="!hidden">
+          <v-icon>expand_less</v-icon>
+        </v-btn>
+      </v-fab-transition>
+    </v-flex>
   </v-layout>
 </v-container>
-</template>
+</template>right
 <script>
 import VueMarkdown from 'vue-markdown'
 //import TagCloud from '@/views/tag'
@@ -37,6 +44,7 @@ export default {
   name: 'rightsidebar',
   data() {
     return {
+      hidden:false,
       notice: "天门山，就是安徽当涂县的东梁山古代又称博望山）与和县的西梁山的合称。两山夹江对峙，象一座天设的门户，形势非常险要，“天门”即由此得名。诗题中的“望”字，说明诗中所描绘的是远望所见天门"
     }
   },

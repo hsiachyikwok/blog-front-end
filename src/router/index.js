@@ -10,6 +10,9 @@ import about from '@/views/about'
 import articlelist from '@/views/articlelist'
 import archive from '@/views/archive'
 import login from '@/views/login'
+import articlemanage from '@/views/admin/articlemanage'
+import settingsmanage from '@/views/admin/settingsmanage'
+import commentmanage from '@/views/admin/commentmanage'
 
 Vue.use(Router)
 
@@ -51,12 +54,12 @@ export default new Router({
     ]
     },
     {
-      path: '/404',
-      component: error
-    },
-    {
       path: '/admin',
       component: admin
+    },
+    {
+      path: '/404',
+      component: error
     },
     {
       path: '/login',

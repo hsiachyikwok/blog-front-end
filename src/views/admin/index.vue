@@ -41,10 +41,7 @@
     <v-toolbar-title>Application</v-toolbar-title>
   </v-toolbar>
   <v-content>
-    <v-container fluid fill-height>
-      <v-layout justify-center align-center>
-      </v-layout>
-    </v-container>
+    <router-view/>
   </v-content>
   <v-footer color="indigo" app>
     <span class="white--text">&copy; 2018</span>

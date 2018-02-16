@@ -17,7 +17,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary">登录</v-btn>
+              <v-btn color="primary" @click="submit">登录</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -32,6 +32,11 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    submit(){
+      this.$router.push('/admin/articlemanage')
     }
   }
 }

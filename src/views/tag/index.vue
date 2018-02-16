@@ -16,7 +16,6 @@ export default {
     return {
       width: 500,
       height: 500,
-      tagsNum: 10,
       RADIUS: 200,
       speedX: Math.PI / 360,
       speedY: Math.PI / 360,
@@ -32,20 +31,28 @@ export default {
     }
   },
   created() { //初始化标签位置
-    let tags = [];
-    for (let i = 0; i < this.tagsNum; i++) {
-      let tag = {};
-      let k = -1 + (2 * (i + 1) - 1) / this.tagsNum;
-      let a = Math.acos(k);
-      let b = a * Math.sqrt(this.tagsNum * Math.PI)
-      tag.text = i + 'tag';
-      tag.x = this.CX + this.RADIUS * Math.sin(a) * Math.cos(b);
-      tag.y = this.CY + this.RADIUS * Math.sin(a) * Math.sin(b);
-      tag.z = this.RADIUS * Math.cos(a);
-      tag.href = 'https://imgss.github.io'
-      tags.push(tag)
-    }
-    this.tags = tags;
+    let tags = [{
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      },
+      {
+        text: 'springcloud',
+        href: 'http://wwww.sina.com'
+      }
+    ];
+    this.setTags(tags)
   },
   mounted() { //使球开始旋转
     setInterval(() => {
@@ -79,6 +86,22 @@ export default {
       var y = event.clientY - this.CY;
       this.speedX = x * 0.0001 > 0 ? Math.min(this.RADIUS * 0.00002, x * 0.0001) : Math.max(-this.RADIUS * 0.00002, x * 0.0001);
       this.speedY = y * 0.0001 > 0 ? Math.min(this.RADIUS * 0.00002, y * 0.0001) : Math.max(-this.RADIUS * 0.00002, y * 0.0001);
+    },
+    setTags(tagcloud) { //初始化标签
+      var tags = []
+      for (let i = 0; i < tagcloud.length; i++) {
+        let tag = {};
+        let k = -1 + (2 * (i + 1) - 1) / tagcloud.length;
+        let a = Math.acos(k);
+        let b = a * Math.sqrt(tagcloud.length * Math.PI)
+        tag.text = tagcloud[i].text;
+        tag.x = this.CX + this.RADIUS * Math.sin(a) * Math.cos(b);
+        tag.y = this.CY + this.RADIUS * Math.sin(a) * Math.sin(b);
+        tag.z = this.RADIUS * Math.cos(a);
+        tag.href = tagcloud[i].href
+        tags.push(tag)
+      }
+      this.tags = tags;
     }
   }
 

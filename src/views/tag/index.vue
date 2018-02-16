@@ -1,13 +1,17 @@
 <template>
-<v-layout>
-  <v-flex>
-    <svg :width='width' :height='height' @mousemove='listener($event)'>
-      <a :href="tag.href" v-for='tag in tags'>
-        <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.text}}</text>
-      </a>
-    </svg>
-  </v-flex>
-</v-layout>
+<v-container>
+  <v-layout>
+    <v-flex>
+      <v-card>
+        <svg :width='width' :height='height' @mousemove='listener($event)'>
+        <a :href="tag.href" v-for='tag in tags'>
+          <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.text}}</text>
+        </a>
+      </svg>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
 </template>
 <script>
 export default {

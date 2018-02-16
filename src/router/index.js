@@ -34,12 +34,20 @@ export default new Router({
       {
         path: '/tag',
         component: tag
-      }
+      },
+      {
+        path: '/about',
+        component: about
+      },
+      {
+        path: '/category',
+        component: category
+      },
+      {
+        path: '/archive',
+        component: archive
+      },
     ]
-    },
-    {
-      path: '/category',
-      component: category
     },
     {
       path: '/404',
@@ -48,14 +56,6 @@ export default new Router({
     {
       path: '/admin',
       component: admin
-    },
-    {
-      path: '/about',
-      component: about
-    },
-    {
-      path: '/archive',
-      component: archive
     },
     {
       path: '*',

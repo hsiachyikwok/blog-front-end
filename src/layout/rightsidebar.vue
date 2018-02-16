@@ -21,19 +21,18 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex>
-      <strong>标签</strong>
+    <!-- <v-flex>
+      <strong>标签云</strong>
     </v-flex>
     <v-flex>
-      <v-card>
-      dddd
-      </v-card>
-    </v-flex>
+      <tag-cloud></tag-cloud>
+    </v-flex> -->
   </v-layout>
 </v-container>
 </template>
 <script>
 import VueMarkdown from 'vue-markdown'
+//import TagCloud from '@/views/tag'
 export default {
   name: 'rightsidebar',
   data() {
@@ -42,7 +41,8 @@ export default {
     }
   },
   components: {
-    VueMarkdown
+    VueMarkdown,
+    //TagCloud
   }
 }
 </script>

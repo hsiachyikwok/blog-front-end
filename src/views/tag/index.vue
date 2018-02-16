@@ -1,19 +1,22 @@
 <template>
-<div>
-  <svg :width='width' :height='height' @mousemove='listener($event)'>
-  <a :href="tag.href" v-for='tag in tags'>
-  <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.text}}</text>
-  </a>
-  </svg>
-</div>
+<v-layout>
+  <v-flex>
+    <svg :width='width' :height='height' @mousemove='listener($event)'>
+      <a :href="tag.href" v-for='tag in tags'>
+        <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.text}}</text>
+      </a>
+    </svg>
+  </v-flex>
+</v-layout>
 </template>
 <script>
 export default {
+  name: 'tagcloud',
   data() {
     return {
-      width: 700,
-      height: 700,
-      tagsNum: 20,
+      width: 500,
+      height: 500,
+      tagsNum: 10,
       RADIUS: 200,
       speedX: Math.PI / 360,
       speedY: Math.PI / 360,

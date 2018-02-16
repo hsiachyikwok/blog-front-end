@@ -13,7 +13,7 @@ import archive from '@/views/archive'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  //mode: 'history',
   routes: [
     {
       path: '/',
@@ -30,11 +30,12 @@ export default new Router({
         path: '/article/:id',
         name: 'article',
         component: article,
-      }]
-    },
-    {
-      path: '/tag',
-      component: tag
+      },
+      {
+        path: '/tag',
+        component: tag
+      }
+    ]
     },
     {
       path: '/category',

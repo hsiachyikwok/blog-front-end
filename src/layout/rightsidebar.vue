@@ -11,7 +11,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex>
+    <!-- <v-flex>
       <strong>最近评论</strong>
     </v-flex>
     <v-flex text-xs-left>
@@ -21,8 +21,28 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <!-- <v-flex>
-      <strong>标签云</strong>
+    <v-flex>
+      <strong>最近浏览</strong>
+    </v-flex>
+    <v-flex text-xs-left>
+      <v-card>
+        <v-card-text>
+          <vue-markdown :source="notice"></vue-markdown>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+    <v-flex>
+      <strong>最多浏览</strong>
+    </v-flex>
+    <v-flex text-xs-left>
+      <v-card>
+        <v-card-text>
+          <vue-markdown :source="notice"></vue-markdown>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+    <v-flex>
+      <strong>标签</strong>
     </v-flex>
     <v-flex>
       <tag-cloud></tag-cloud>

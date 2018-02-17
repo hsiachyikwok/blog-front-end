@@ -79,7 +79,7 @@ export default {
     },
     exit() {
       //console.log(title)
-      this.$router.push('/login')
+      this.$router.push('/index')
     },
     menuActions(title) {
       if (title === '退出') {

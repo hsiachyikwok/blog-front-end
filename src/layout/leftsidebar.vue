@@ -11,8 +11,9 @@
         <v-flex mb-3>
           <strong>君子性非异也，善假于物也。</strong>
         </v-flex>
+        <v-icon>location_on</v-icon>
         <v-flex>
-          china-chengdu
+          中国-成都
         </v-flex>
         <v-divider></v-divider>
         <v-flex>
@@ -20,7 +21,7 @@
             <v-icon small>fa-envelope</v-icon>
           </v-btn>
           <v-btn icon>
-            <v-icon small>fa-github</v-icon>
+            <i style="width:26px;height:26px"class="fab fa-github"></i>
           </v-btn>
           <v-btn icon>
             <v-icon standard>fa-rss-square</v-icon>

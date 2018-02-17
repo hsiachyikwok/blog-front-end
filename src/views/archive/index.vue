@@ -10,11 +10,6 @@
               <timeline-item color="#9dd8e0">spring 源码分析</timeline-item>
               <timeline-item :hollow="true">vue 入门</timeline-item>
               <timeline-item :hollow="true">vue 入门</timeline-item>
-              <timeline-item :hollow="true">
-                <v-avatar>
-                  <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
-                </v-avatar>
-              </timeline-item>
             </div>
           </timeline>
         </v-flex>

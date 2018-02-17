@@ -32,9 +32,16 @@
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     <v-toolbar-title>Admin</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-avatar>
-      <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
-    </v-avatar>
+    <v-menu bottom offset-y>
+      <v-avatar slot="activator">
+        <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
+      </v-avatar>
+      <v-list>
+        <v-list-tile v-for="(item, i) in items" :key="i" @click="menuActions(item.title)">
+          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
   </v-toolbar>
   <v-content>
     <router-view/>
@@ -49,7 +56,12 @@
 export default {
   data() {
     return {
-      drawer: null
+      drawer: null,
+      items: [{
+        title: '首页'
+      }, {
+        title: '退出'
+      }]
     }
   },
   methods: {
@@ -64,6 +76,17 @@ export default {
     },
     jumpToCommentManage() {
       this.$router.push('/admin/commentmanage')
+    },
+    exit() {
+      //console.log(title)
+      this.$router.push('/login')
+    },
+    menuActions(title) {
+      if (title === '退出') {
+        this.exit()
+      } else if (title === '首页') {
+        this.jumpToHomePage()
+      }
     }
   }
 }

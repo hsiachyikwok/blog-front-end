@@ -1,8 +1,15 @@
 <template>
 <v-toolbar app>
-  <v-avatar>
-    <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
-  </v-avatar>
+  <v-menu bottom offset-y>
+    <v-avatar slot="activator">
+      <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
+    </v-avatar>
+    <v-list>
+      <v-list-tile v-for="(item, i) in items" :key="i" @click="manage(item.title)">
+        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+      </v-list-tile>
+    </v-list>
+  </v-menu>
   <v-toolbar-title>
     <router-link to="/">Hsia'Blog</router-link>
   </v-toolbar-title>
@@ -43,6 +50,17 @@
 </template>
 <script>
 export default {
-  name: 'toolbar'
+  name: 'toolbar',
+  data(){
+    return{
+      items:[{title:'管理'}]
+    }
+  },
+  methods: {
+    manage(title) {
+      //console.log(title)
+      this.$router.push('/login')
+    }
+  }
 }
 </script>

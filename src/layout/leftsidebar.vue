@@ -20,8 +20,8 @@
           <v-btn icon>
             <v-icon small>fa-envelope</v-icon>
           </v-btn>
-          <v-btn icon>
-            <i style="width:26px;height:26px"class="fab fa-github"></i>
+          <v-btn icon @click="$router.push('https://github.com/hsiachyikwok')">
+            <i style="width:26px;height:26px" class="fab fa-github"></i>
           </v-btn>
           <v-btn icon>
             <v-icon standard>fa-rss-square</v-icon>
@@ -31,8 +31,8 @@
         <v-flex mt-3>
           <strong>友链</strong>
         </v-flex>
-        <v-flex  :key = n v-for="n in 3">
-          dddddd
+        <v-flex :key=n v-for="n in 3">
+          <router-link to="http://www.xiaqiguo.com">hsiachyikwok</router-link>
         </v-flex>
       </v-card>
     </v-flex>

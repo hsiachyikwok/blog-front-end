@@ -3,12 +3,12 @@
   <v-layout>
     <v-flex>
       <v-card>
-        <v-flex>
+        <div>
           <v-chip :key=n v-for="n in 20">
             <v-avatar class="teal">J</v-avatar>
             Java
           </v-chip>
-        </v-flex>
+        </div>
       </v-card>
     </v-flex>
   </v-layout>

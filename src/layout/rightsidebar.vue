@@ -2,7 +2,7 @@
 <v-container>
   <v-layout column>
     <v-flex>
-      <strong>公告</strong>
+      <v-icon>fa-paperclip</v-icon> 
     </v-flex>
     <v-flex text-xs-left>
       <v-card>

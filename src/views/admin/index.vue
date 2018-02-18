@@ -36,7 +36,7 @@
       <v-avatar slot="activator">
         <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
       </v-avatar>
-      <v-list>
+      <v-list dense>
         <v-list-tile v-for="(item, i) in items" :key="i" @click="menuActions(item.title)">
           <v-list-tile-title>{{ item.title }}</v-list-tile-title>
         </v-list-tile>

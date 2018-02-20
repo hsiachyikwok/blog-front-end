@@ -13,8 +13,7 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
-import ArticleCard from '@/views/articlelist/article'
+import ArticleCard from './article.vue'
 export default {
   name: 'articlelist',
   data() {
@@ -23,7 +22,6 @@ export default {
     }
   },
   components: {
-    VueMarkdown,
     ArticleCard
   }
 }

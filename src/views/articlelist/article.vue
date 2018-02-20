@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown'
 export default {
   name: 'articlecard',
   data() {
@@ -47,6 +48,9 @@ export default {
       timestamp: '2018-2-13 18:23',
       viewcount: '100'
     }
+  },
+  components: {
+    VueMarkdown
   }
 }
 </script>

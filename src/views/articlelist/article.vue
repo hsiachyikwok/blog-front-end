@@ -22,10 +22,12 @@
   </v-card-text>
   <v-divider></v-divider>
   <v-card-actions>
-    <v-icon small color="green">fa-tag</v-icon>
-    <a herf="www">springboot</a> ,
-    <a herf="www">vue</a> ,
-    <a herf="www">springcloud</a>
+    <i class="fas fa-tag"></i>
+    <div>
+      <a herf="www">springboot</a> ,
+      <a herf="www">vue</a> ,
+      <a herf="www">springcloud</a>
+    </div>
     <v-spacer></v-spacer>
     <v-btn flat color="orange" @click.native="$router.push({name: 'article', params: {id: 'springboot'}})">阅读更多</v-btn>
   </v-card-actions>

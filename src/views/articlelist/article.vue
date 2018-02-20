@@ -1,7 +1,7 @@
 <template>
 <v-card>
   <v-card-title primary-title>
-    <v-layout column>
+    <!-- <v-layout column>
       <v-flex text-xs-center>
         <h2>手把手教你撸一个博客系统</h2>
       </v-flex>
@@ -21,7 +21,10 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </v-layout>
+    </v-layout> -->
+    <v-flex text-xs-center>
+      <h2>手把手教你撸一个博客系统</h2>
+    </v-flex>
   </v-card-title>
   <v-card-text>
     <vue-markdown :source="content"></vue-markdown>

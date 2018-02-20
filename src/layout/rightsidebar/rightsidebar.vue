@@ -2,6 +2,7 @@
 <v-container>
   <v-layout column>
     <notice></notice>
+    <go-top></go-top>
     <!-- <v-flex>
       <strong>最近评论</strong>
     </v-flex>
@@ -38,19 +39,19 @@
     <v-flex>
       <tag-cloud></tag-cloud>
     </v-flex> -->
-    <v-flex>
+    <!-- <v-flex>
       <v-fab-transition>
         <v-btn @click="goTop" color="pink" dark fab bottom right fixed v-show="hidden">
           <v-icon>expand_less</v-icon>
         </v-btn>
       </v-fab-transition>
-    </v-flex>
+    </v-flex> -->
   </v-layout>
 </v-container>
 </template>
 <script>
 import notice from './notice.vue'
-//import TagCloud from '@/views/tag'
+import GoTop from '@/components/goTop'
 export default {
   name: 'rightsidebar',
   data() {
@@ -63,34 +64,8 @@ export default {
     }
   },
   components: {
-    notice
-  },
-  mounted() {
-    // Dom加载完毕时监听scroll事件
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
-    if (this.interval) {
-      clearInterval(this.interval)
-    }
-  },
-  methods: {
-    handleScroll() {
-      // 判断条件
-      this.hidden = window.pageYOffset > this.visibleHeight
-      this.scrollTop = window.pageYOffset
-    },
-    goTop(e) {
-      this.interval = setInterval(() => {
-        this.scrollTop = this.scrollTop + (-this.scrollTop) / this.rate
-        window.scrollTo(0, this.scrollTop)
-        if (this.scrollTop <= 0) {
-          window.scrollTo(0, 0)
-          clearInterval(this.interval)
-        }
-      }, 13)
-    }
+    notice,
+    GoTop
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
 <v-container>
   <v-layout column>
-    <v-flex :key=n v-for="n in 3" mb-3 text-xs-left>
-      <article-card></article-card>
+    <v-flex :key=item.id v-for="item in this.articleList" mb-3 text-xs-left>
+      <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
       <v-pagination :length="5" v-model="page">
@@ -14,15 +14,22 @@
 
 <script>
 import ArticleCard from './article.vue'
+import api from '@/api'
 export default {
   name: 'articlelist',
   data() {
     return {
-      page: 1
+      page: 1,
+      articleList: ''
     }
   },
   components: {
     ArticleCard
+  },
+  mounted() {
+    api.article.getArticleListByState(1).then(res => {
+      this.articleList = res.body
+    }, error => console.log(error))
   }
 }
 </script>

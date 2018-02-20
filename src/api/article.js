@@ -1,8 +1,8 @@
 import service from './resource'
 
 export default {
-  getArticleListByState() {
-    return service.get('/article/list')
+  getArticleListByState(state) {
+    return service.get('/article/list/'+state)
   },
 
   getArticle(id) {

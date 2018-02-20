@@ -15,7 +15,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <hr/>
     <v-container  fluid grid-list-md text-xs-center>
       <!-- <bottom></bottom> -->
     </v-container>

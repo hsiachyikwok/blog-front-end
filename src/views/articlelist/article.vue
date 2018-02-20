@@ -11,7 +11,7 @@
           <span>{{timestamp}}</span>
         </v-flex>
         <v-flex text-xs-left>
-          <span><i class="far fa-calendar-alt"></i></span>
+          <i class="fas fa-user"></i>
           <span>1000</span>
         </v-flex>
       </v-layout>

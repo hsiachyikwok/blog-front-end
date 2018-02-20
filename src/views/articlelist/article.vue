@@ -1,30 +1,21 @@
 <template>
 <v-card>
   <v-card-title primary-title>
-    <!-- <v-layout column>
-      <v-flex text-xs-center>
+    <v-layout column text-xs-center>
+      <v-flex>
         <h2>手把手教你撸一个博客系统</h2>
       </v-flex>
-      <v-container grid-list-md>
-        <v-layout>
-          <v-flex xs12 row>
-            <v-layout row>
-              <v-flex><i class="far fa-calendar-alt"></i></v-flex>
-              <v-flex>{{timestamp}}</v-flex>
-            </v-layout>
-          </v-flex>
-          <v-flex xs12 justify-center>
-            <v-layout row justify-center>
-              <v-flex><i class="far fa-calendar-alt"></i></v-flex>
-              <v-flex>1000</v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-layout> -->
-    <v-flex text-xs-center>
-      <h2>手把手教你撸一个博客系统</h2>
-    </v-flex>
+      <v-layout row>
+        <v-flex text-xs-right>
+          <span><i class="far fa-calendar-alt"></i></span>
+          <span>{{timestamp}}</span>
+        </v-flex>
+        <v-flex text-xs-left>
+          <span><i class="far fa-calendar-alt"></i></span>
+          <span>1000</span>
+        </v-flex>
+      </v-layout>
+    </v-layout>
   </v-card-title>
   <v-card-text>
     <vue-markdown :source="content"></vue-markdown>

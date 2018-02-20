@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import bottom from './bottom.vue'
-import leftSidebar from './leftsidebar.vue'
-import rightSidebar from './rightsidebar.vue'
-import toolbar from './toolbar.vue'
-import appFooter from './footer.vue'
+import bottom from './bottom/bottom.vue'
+import leftSidebar from './leftsidebar/leftsidebar.vue'
+import rightSidebar from './rightsidebar/rightsidebar.vue'
+import toolbar from './toolbar/toolbar.vue'
+import appFooter from './footer/footer.vue'
 export default {
   name: 'layout',
   components: {

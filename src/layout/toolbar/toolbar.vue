@@ -13,38 +13,7 @@
   <v-toolbar-title>
     Hsia'Blog
   </v-toolbar-title>
-  <v-flex ml-5>
-    <router-link to="/index">
-      <v-btn icon>
-        <v-icon small>fa-h-square</v-icon>
-      </v-btn>
-    </router-link>
-    首页
-    <router-link to="/archive">
-      <v-btn icon>
-        <v-icon small>fa-archive</v-icon>
-      </v-btn>
-    </router-link>
-    归档
-    <router-link to="/tag">
-      <v-btn icon>
-        <v-icon small>fa-tags</v-icon>
-      </v-btn>
-    </router-link>
-    标签
-    <router-link to="/category">
-      <v-btn icon>
-        <v-icon small>fa-cube</v-icon>
-      </v-btn>
-    </router-link>
-    分类
-    <router-link to="/about">
-      <v-btn icon>
-        <v-icon small>fa-user-secret</v-icon>
-      </v-btn>
-    </router-link>
-    关于
-  </v-flex>
+  <navigation></navigation>
   <v-spacer></v-spacer>
   <v-btn icon>
     <v-icon>fa-search</v-icon>
@@ -54,6 +23,7 @@
 </v-toolbar>
 </template>
 <script>
+import navigation from './navigation.vue'
 export default {
   name: 'toolbar',
   data() {
@@ -65,9 +35,11 @@ export default {
   },
   methods: {
     manage(title) {
-      //console.log(title)
       this.$router.push('/login')
     }
+  },
+  components: {
+    navigation
   }
 }
 </script>

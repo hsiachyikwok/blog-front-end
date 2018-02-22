@@ -28,10 +28,9 @@ export default {
     comment,
   },
   mounted() {
-    api.article.getArticle(1).then(res=>{
+    api.article.getArticle(1).then(res => {
       this.content = res.body.content
-    },error=>console.log(error)
-  )
+    }, error => console.log(error))
   }
 }
 </script>

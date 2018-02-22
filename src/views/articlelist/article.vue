@@ -27,7 +27,7 @@
       {{article.tags}}
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn flat color="orange" @click.native="$router.push({name: 'article', params: {id: 'springboot'}})">阅读更多</v-btn>
+    <v-btn flat color="orange" @click.native="readmore(article)">阅读更多</v-btn>
   </v-card-actions>
 </v-card>
 </template>
@@ -42,9 +42,15 @@ export default {
   },
   data() {
     return {
-      content: `  天门山，就是安徽当涂县的东梁山（古代又称博望山）与和县的西梁山的合称。两山夹江对峙，象一座天设的门户，形势非常险要，“天门”即由此得名。诗题中的“西岳峥嵘何壮哉！黄河如丝天际来。黄河万里触山动，盘涡毂转秦地雷。”“盘涡毂转”也就是“碧水东流至此回”，同样是描绘万里江河受到峥嵘奇险的山峰阻遏时出现的情景。绝句尚简省含蓄，所以不象七古那样写得淋漓尽致。`,
-      timestamp: '2018-2-13 18:23',
-      viewcount: '100'
+    }
+  },
+  methods :{
+    readmore(article){
+      if(article.articleLink===''){
+        let date = new Date(article.createTime)
+        article.articleLink = formatDate(date,'yyyy-MM-dd')+article.id
+      }
+      this.$router.push({name: 'article', params: {id: article.articleLink}})
     }
   },
   components: {
@@ -57,7 +63,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.article)
+    //console.log(this.article)
   }
 }
 </script>

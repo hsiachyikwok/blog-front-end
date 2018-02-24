@@ -4,8 +4,8 @@
     <v-flex>
       <v-card>
         <svg :width='width' :height='height' @mousemove='listener($event)'>
-        <a :href="tag.href" v-for='tag in tags'>
-          <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.text}}</text>
+        <a :href="tag.tagName" v-for='tag in tags'>
+          <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.tagName}}</text>
         </a>
       </svg>
       </v-card>
@@ -35,18 +35,16 @@ export default {
       return this.height / 2;
     }
   },
-  created() { //初始化标签位置
-    this.setTags(tags)
-  },
   mounted() { //使球开始旋转
+    api.tag.getTagList().then(res => {
+      this.tags = res.body
+      this.setTags(this.tags) //初始化标签位置
+    }, error => console.log(error))
+
     setInterval(() => {
       this.rotateX(this.speedX);
       this.rotateY(this.speedY);
     }, 17)
-
-    api.tag.getTagList().then(res => {
-      this.tags = res.body
-    }, error => console.log(error))
   },
   methods: {
     rotateX(speedX) {
@@ -82,11 +80,11 @@ export default {
         let k = -1 + (2 * (i + 1) - 1) / tagcloud.length;
         let a = Math.acos(k);
         let b = a * Math.sqrt(tagcloud.length * Math.PI)
-        tag.text = tagcloud[i].text;
+        tag.tagName = tagcloud[i].tagName;
         tag.x = this.CX + this.RADIUS * Math.sin(a) * Math.cos(b);
         tag.y = this.CY + this.RADIUS * Math.sin(a) * Math.sin(b);
         tag.z = this.RADIUS * Math.cos(a);
-        tag.href = tagcloud[i].href
+        //tag.href = tagcloud[i].href
         tags.push(tag)
       }
       this.tags = tags;

@@ -28,7 +28,8 @@ export default {
     comment,
   },
   mounted() {
-    api.article.getArticle(1).then(res => {
+    var id = this.$router.currentRoute.query.id
+    api.article.getArticle(id).then(res => {
       this.content = res.body.content
     }, error => console.log(error))
   }

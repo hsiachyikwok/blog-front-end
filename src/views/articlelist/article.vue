@@ -34,23 +34,32 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
-import {formatDate} from '@/utils/dateformat.js'
+import {
+  formatDate
+} from '@/utils/dateformat.js'
 export default {
   name: 'articlecard',
   props: {
     article: ''
   },
   data() {
-    return {
-    }
+    return {}
   },
-  methods :{
-    readmore(article){
-      if(article.articleLink===''){
+  methods: {
+    readmore(article) {
+      if (article.articleLink === '') {
         let date = new Date(article.createTime)
-        article.articleLink = formatDate(date,'yyyy-MM-dd')+article.id
+        article.articleLink = formatDate(date, 'yyyy-MM-dd')
       }
-      this.$router.push({name: 'article', params: {id: article.articleLink}})
+      this.$router.push({
+        name: 'article',
+        query:{
+          id:article.id
+        },
+        params: {
+          id: article.articleLink
+        }
+      })
     }
   },
   components: {
@@ -58,8 +67,8 @@ export default {
   },
   filters: {
     formatDate(time) {
-    let date = new Date(time)
-    return formatDate(date,'yyyy-MM-dd hh:mm')
+      let date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm')
     }
   },
   mounted() {

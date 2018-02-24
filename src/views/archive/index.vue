@@ -5,11 +5,9 @@
       <v-card>
         <v-flex>
           <timeline>
-            <div v-for="n in 3">
-              <timeline-title>2018-2-16</timeline-title>
-              <timeline-item color="#9dd8e0">spring 源码分析</timeline-item>
-              <timeline-item :hollow="true">vue 入门</timeline-item>
-              <timeline-item :hollow="true">vue 入门</timeline-item>
+            <div v-for="(item, index) in archiveList" :key="index">
+              <timeline-title>{{item.archiveDate}}</timeline-title>
+              <timeline-item color="#9dd8e0" v-for="(subitem, subindex) in item.articleList" :key="subindex">{{subitem}}</timeline-item>
             </div>
           </timeline>
         </v-flex>
@@ -24,14 +22,31 @@ import {
   TimelineItem,
   TimelineTitle
 } from 'vue-cute-timeline'
+import api from '@/api'
 export default {
   data() {
-    return {}
+    return {
+      archiveList: [{
+        archiveDate: '2108-1-1',
+        articleList: ['vue', 'vue']
+      }, {
+        archiveDate: '2108-1-1',
+        articleList: ['vue', 'vue']
+      }, {
+        archiveDate: '2108-1-1',
+        articleList: ['vue', 'vue']
+      }]
+    }
   },
   components: {
     Timeline,
     TimelineItem,
     TimelineTitle
+  },
+  mounted() {
+    api.archive.getArchiveList().then(res => {
+      //this.archiveList = res.body
+    }, error => console.log(error))
   }
 
 }

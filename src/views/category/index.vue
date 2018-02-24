@@ -5,7 +5,7 @@
       <v-card height="600px">
         <div>
           <v-chip :key=item.id v-for="item in categoryList">
-            <v-avatar class="teal">C</v-avatar>
+            <v-avatar class="teal">{{item.catName|getFirstChar}}</v-avatar>
             {{item.catName}}
           </v-chip>
         </div>
@@ -20,6 +20,11 @@ export default {
   data() {
     return {
       categoryList: []
+    }
+  },
+  filters: {
+    getFirstChar: function(value) {
+      return value.substr(0, 1)
     }
   },
   mounted() {

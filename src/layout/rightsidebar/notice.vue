@@ -4,7 +4,7 @@
     <v-icon>fa-paperclip</v-icon>
   </v-flex>
   <v-flex text-xs-left>
-    <v-card>
+    <v-card height="300px">
       <v-card-text>
         <vue-markdown :source="content"></vue-markdown>
       </v-card-text>

@@ -32,6 +32,7 @@ import rightSidebar from './rightsidebar/rightsidebar.vue'
 import toolbar from './toolbar/toolbar.vue'
 import appFooter from './footer/footer.vue'
 import api from '@/api'
+import storage from '@/utils/storage.js'
 export default {
   name: 'layout',
   components: {
@@ -48,7 +49,7 @@ export default {
   },
   mounted() {
     api.config.getConfig().then(res => {
-
+      storage.set('config', res.body)
     }, error => {
       console.log(error)
     })

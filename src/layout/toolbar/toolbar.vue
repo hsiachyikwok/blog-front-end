@@ -11,7 +11,7 @@
     </v-list>
   </v-menu>
   <v-toolbar-title>
-    Hsia'Blog
+    {{blogTitle}}
   </v-toolbar-title>
   <navigation></navigation>
   <v-spacer></v-spacer>
@@ -23,6 +23,7 @@
 </v-toolbar>
 </template>
 <script>
+import storage from '@/utils/storage.js'
 import navigation from './navigation.vue'
 export default {
   name: 'toolbar',
@@ -30,7 +31,8 @@ export default {
     return {
       items: [{
         title: '管理'
-      }]
+      }],
+      blogTitle: ''
     }
   },
   methods: {
@@ -40,6 +42,9 @@ export default {
   },
   components: {
     navigation
+  },
+  mounted() {
+    this.blogTitle = storage.get('config').blogTitle
   }
 }
 </script>

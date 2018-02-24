@@ -15,15 +15,19 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import storage from '@/utils/storage.js'
 export default {
   name: 'notice',
   data() {
     return {
-      content: "天门山，就是安徽当涂县的东梁山古代又称博望山）与和县的西梁山的合称。两山夹江对峙，象一座天设的门户，形势非常险要，“天门”即由此得名。诗题中的“望”字，说明诗中所描绘的是远望所见天门",
+      content: "",
     }
   },
-  components : {
+  components: {
     VueMarkdown
+  },
+  mounted() {
+    this.content = storage.get('config').notice
   }
 }
 </script>

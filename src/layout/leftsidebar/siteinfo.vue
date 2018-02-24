@@ -6,11 +6,11 @@
     </v-avatar>
   </v-flex>
   <v-flex mb-3>
-    <strong>君子性非异也，善假于物也。</strong>
+    <strong>{{blogSubTitle}}</strong>
   </v-flex>
   <v-icon>location_on</v-icon>
   <v-flex>
-    中国-成都
+    {{location}}
   </v-flex>
   <v-divider></v-divider>
   <v-flex>
@@ -28,14 +28,36 @@
   <v-flex mt-3>
     <strong>友链</strong>
   </v-flex>
-  <v-flex :key=n v-for="n in 3">
-    <router-link to="http://www.xiaqiguo.com">hsiachyikwok</router-link>
+  <v-flex :key=item.id v-for="item in this.friendLink">
+    <a href="">{{item.linkTitle}}</a>
   </v-flex>
 </v-card>
 </template>
 
 <script>
+import storage from '@/utils/storage.js'
+import api from '@/api'
 export default {
-  name : 'siteinfo'
+  name: 'siteinfo',
+  data() {
+    return {
+      blogSubTitle: '',
+      location:'',
+      avatar:'',
+      friendLink:[]
+    }
+  },
+  mounted() {
+    this.blogSubTitle = storage.get('config').blogSubTitle
+    this.avatar = storage.get('config').avatar
+    this.location = storage.get('config').location
+    //console.log(this.avatar)
+
+    api.friendlink.getFriendLink().then(res => {
+      this.friendLink = res.body
+    }, error => {
+      console.log(error)
+    })
+  }
 }
 </script>

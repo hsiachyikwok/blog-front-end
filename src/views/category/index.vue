@@ -2,7 +2,7 @@
 <v-container>
   <v-layout>
     <v-flex>
-      <v-card>
+      <v-card height="600px">
         <div>
           <v-chip :key=n v-for="n in 20">
             <v-avatar class="teal">J</v-avatar>

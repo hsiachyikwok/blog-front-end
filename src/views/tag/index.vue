@@ -14,6 +14,7 @@
 </v-container>
 </template>
 <script>
+import api from '@/api'
 export default {
   name: 'tagcloud',
   data() {
@@ -35,35 +36,6 @@ export default {
     }
   },
   created() { //初始化标签位置
-    let tags = [{
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      },
-      {
-        text: 'springcloud',
-        href: 'http://wwww.sina.com'
-      }
-    ];
     this.setTags(tags)
   },
   mounted() { //使球开始旋转
@@ -71,6 +43,10 @@ export default {
       this.rotateX(this.speedX);
       this.rotateY(this.speedY);
     }, 17)
+
+    api.tag.getTagList().then(res => {
+      this.tags = res.body
+    }, error => console.log(error))
   },
   methods: {
     rotateX(speedX) {

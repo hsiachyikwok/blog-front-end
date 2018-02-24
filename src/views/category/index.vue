@@ -4,9 +4,9 @@
     <v-flex>
       <v-card height="600px">
         <div>
-          <v-chip :key=n v-for="n in 20">
-            <v-avatar class="teal">J</v-avatar>
-            Java
+          <v-chip :key=item.id v-for="item in categoryList">
+            <v-avatar class="teal">C</v-avatar>
+            {{item.catName}}
           </v-chip>
         </div>
       </v-card>
@@ -15,12 +15,17 @@
 </v-container>
 </template>
 <script>
+import api from '@/api'
 export default {
   data() {
     return {
-
+      categoryList: []
     }
+  },
+  mounted() {
+    api.category.getCategoryList().then(res => {
+      this.categoryList = res.body
+    }, error => console.log(error))
   }
-
 }
 </script>

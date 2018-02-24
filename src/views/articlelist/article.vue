@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     readmore(article) {
-      if (article.articleLink === '') {
+      if (article.articleLink === ''||article.articleLink===null) {
         let date = new Date(article.createTime)
         article.articleLink = formatDate(date, 'yyyy-MM-dd')
       }

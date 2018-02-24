@@ -3,5 +3,7 @@ const merge = require('webpack-merge')
 const devEnv = require('./dev.env')
 
 module.exports = merge(devEnv, {
-  NODE_ENV: '"testing"'
+  NODE_ENV: '"testing"',
+  BASE_API: '"http://localhost:8888"',
+  PORT:'9999'
 })

@@ -2,7 +2,7 @@
 <v-container>
   <v-layout>
     <v-flex text-xs-left>
-      <v-card>
+      <v-card height="600px">
         <v-card-text>
           <vue-markdown v-highlightjs :source="this.content"></vue-markdown>
         </v-card-text>

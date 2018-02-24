@@ -4,7 +4,7 @@
     <v-flex text-xs-left>
       <v-card height="600px">
         <v-card-text>
-          <vue-markdown v-highlightjs :source="this.content"></vue-markdown>
+          <vue-markdown v-highlightjs :source="this.about"></vue-markdown>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -14,15 +14,18 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import storage from '@/utils/storage.js'
 export default {
   data() {
     return {
-      content: "## 技术思考"
+      about: ""
     }
   },
   components: {
     VueMarkdown
   },
-
+  mounted() {
+    this.about = storage.get('config').about
+  }
 }
 </script>

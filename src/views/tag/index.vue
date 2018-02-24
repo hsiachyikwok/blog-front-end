@@ -22,8 +22,8 @@ export default {
       width: 600,
       height: 500,
       RADIUS: 200,
-      speedX: Math.PI / 360,
-      speedY: Math.PI / 360,
+      speedX: Math.PI / 1080,
+      speedY: Math.PI / 1080,
       tags: []
     }
   },
@@ -35,12 +35,12 @@ export default {
       return this.height / 2;
     }
   },
-  mounted() { //使球开始旋转
+  mounted() {
     api.tag.getTagList().then(res => {
       this.tags = res.body
       this.setTags(this.tags) //初始化标签位置
     }, error => console.log(error))
-
+    //使球开始旋转
     setInterval(() => {
       this.rotateX(this.speedX);
       this.rotateY(this.speedY);

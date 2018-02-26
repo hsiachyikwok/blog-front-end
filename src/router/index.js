@@ -15,69 +15,98 @@ import settingsmanage from '@/views/admin/settingsmanage'
 import commentmanage from '@/views/admin/commentmanage'
 
 Vue.use(Router)
-
 export default new Router({
   mode: 'history',
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'layout',
       component: homepage,
-      redirect:'/index',
-      children: [
+      redirect: '/index',
+      children: [{
+          path: '/index',
+          name: 'homepage',
+          component: articlelist,
+          meta: {
+            title: '首页'
+          }
+        },
         {
-        path: '/index',
-        name: 'homepage',
-        component: articlelist,
-      },
-      {
-        path: '/article/:id',
-        name: 'article',
-        component: article,
-      },
-      {
-        path: '/tag',
-        component: tag
-      },
-      {
-        path: '/about',
-        component: about
-      },
-      {
-        path: '/category',
-        component: category
-      },
-      {
-        path: '/archive',
-        component: archive
-      },
-    ]
+          path: '/article/:id',
+          name: 'article',
+          component: article,
+          meta: {
+            title: '文章'
+          }
+        },
+        {
+          path: '/tag',
+          component: tag,
+          meta: {
+            title: '标签'
+          }
+        },
+        {
+          path: '/about',
+          component: about,
+          meta: {
+            title: '关于'
+          }
+        },
+        {
+          path: '/category',
+          component: category,
+          meta: {
+            title: '分类'
+          }
+        },
+        {
+          path: '/archive',
+          component: archive,
+          meta: {
+            title: '归档'
+          }
+        },
+      ]
     },
     {
       path: '/admin',
       component: admin,
-      children :[
-        {
+      children: [{
           path: '/admin/articlemanage',
           component: articlemanage,
+          meta: {
+            title: '文章管理'
+          }
         },
         {
           path: '/admin/settingsmanage',
           component: settingsmanage,
+          meta: {
+            title: '设置管理'
+          }
         },
         {
           path: '/admin/commentmanage',
           component: commentmanage,
+          meta: {
+            title: '评论管理'
+          }
         }
       ]
     },
     {
       path: '/404',
-      component: error
+      component: error,
+      meta: {
+        title: 'error'
+      }
     },
     {
       path: '/login',
-      component: login
+      component: login,
+      meta: {
+        title: '登录'
+      }
     },
     {
       path: '*',

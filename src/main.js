@@ -41,6 +41,21 @@ Vue.config.productionTip = false
 //   }
 // })
 
+// Document title
+Vue.directive('title', {
+  inserted: (el, binding) => {
+    document.title = binding.value
+  },
+  update: (el, binding) => {
+    document.title = binding.value
+  }
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

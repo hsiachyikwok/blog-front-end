@@ -4,7 +4,7 @@
     <v-flex>
       <v-card>
         <svg :width='width' :height='height' @mousemove='listener($event)'>
-        <a :href="tag.tagName" v-for='tag in tags'>
+        <a  href="javascript:void(0);" @click="getArticleByTag()" v-for='tag in tags'>
           <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.tagName}}</text>
         </a>
       </svg>
@@ -84,10 +84,12 @@ export default {
         tag.x = this.CX + this.RADIUS * Math.sin(a) * Math.cos(b);
         tag.y = this.CY + this.RADIUS * Math.sin(a) * Math.sin(b);
         tag.z = this.RADIUS * Math.cos(a);
-        //tag.href = tagcloud[i].href
         tags.push(tag)
       }
       this.tags = tags;
+    },
+    getArticleByTag() {
+      console.log(121313)
     }
   }
 

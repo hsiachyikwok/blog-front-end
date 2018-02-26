@@ -2,7 +2,7 @@
 <v-toolbar app>
   <v-menu bottom offset-y>
     <v-avatar slot="activator">
-      <img src="http://5b0988e595225.cdn.sohucs.com/images/20180205/05a9b6978c47476d8d12694de36dedfe.jpeg" alt="avatar">
+      <img :src="this.favicon" alt="avatar">
     </v-avatar>
     <v-list dense>
       <v-list-tile v-for="(item, i) in items" :key="i" @click="manage(item.title)">
@@ -32,7 +32,8 @@ export default {
       items: [{
         title: '管理'
       }],
-      blogTitle: ''
+      blogTitle: '',
+      favicon:''
     }
   },
   methods: {
@@ -45,6 +46,7 @@ export default {
   },
   mounted() {
     this.blogTitle = storage.get('config').blogTitle
+    this.favicon = storage.get('config').favicon
   }
 }
 </script>

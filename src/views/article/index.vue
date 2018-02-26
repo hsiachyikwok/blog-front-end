@@ -3,9 +3,11 @@
   <v-layout>
     <v-flex text-xs-left>
       <v-card>
-        <v-card-text>
-          <vue-markdown v-highlightjs :source="content"></vue-markdown>
-        </v-card-text>
+        <v-flex px-3 py-3>
+          <v-card-text>
+            <vue-markdown v-highlightjs :source="content"></vue-markdown>
+          </v-card-text>
+        </v-flex>
       </v-card>
     </v-flex>
   </v-layout>

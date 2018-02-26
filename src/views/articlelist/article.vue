@@ -27,7 +27,7 @@
       {{article.tags}}
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn flat color="orange" @click.native="readmore(article)">阅读更多</v-btn>
+    <v-btn flat  round  outline color="indigo" @click.native="readmore(article)">阅读更多</v-btn>
   </v-card-actions>
 </v-card>
 </template>

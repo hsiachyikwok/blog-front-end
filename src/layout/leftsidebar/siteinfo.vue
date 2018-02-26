@@ -17,7 +17,7 @@
     <v-btn icon>
       <v-icon small>fa-envelope</v-icon>
     </v-btn>
-    <v-btn icon @click="$router.push('https://www.baidu.com')">
+    <v-btn icon @click="see('https://github.com/hsiachyikwok')">
       <i style="width:26px;height:26px" class="fab fa-github"></i>
     </v-btn>
     <v-btn icon>
@@ -29,7 +29,7 @@
     <strong>友链</strong>
   </v-flex>
   <v-flex :key=item.id v-for="item in this.friendLink">
-    <a href="https://www.baidu.com">{{item.linkTitle}}</a>
+    <a :href="item.link">{{item.linkTitle}}</a>
   </v-flex>
 </v-card>
 </template>
@@ -42,16 +42,20 @@ export default {
   data() {
     return {
       blogSubTitle: '',
-      location:'',
-      avatar:'',
-      friendLink:[]
+      location: '',
+      avatar: '',
+      friendLink: []
+    }
+  },
+  methods: {
+    see(url) {
+      window.location.href = url
     }
   },
   mounted() {
     this.blogSubTitle = storage.get('config').blogSubTitle
     this.avatar = storage.get('config').avatar
     this.location = storage.get('config').location
-    //console.log(this.avatar)
 
     api.friendlink.getFriendLink().then(res => {
       this.friendLink = res.body

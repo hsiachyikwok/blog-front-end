@@ -17,7 +17,7 @@
     <v-btn icon>
       <v-icon small>fa-envelope</v-icon>
     </v-btn>
-    <v-btn icon @click="$router.push('https://github.com/hsiachyikwok')">
+    <v-btn icon @click="$router.push('https://www.baidu.com')">
       <i style="width:26px;height:26px" class="fab fa-github"></i>
     </v-btn>
     <v-btn icon>
@@ -29,7 +29,7 @@
     <strong>友链</strong>
   </v-flex>
   <v-flex :key=item.id v-for="item in this.friendLink">
-    <a href="">{{item.linkTitle}}</a>
+    <a href="https://www.baidu.com">{{item.linkTitle}}</a>
   </v-flex>
 </v-card>
 </template>

@@ -5,7 +5,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination :length="5" v-model="page">
+      <v-pagination :length="5" v-model="page" circle>
       </v-pagination>
     </v-flex>
   </v-layout>

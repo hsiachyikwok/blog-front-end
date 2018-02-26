@@ -3,7 +3,7 @@
   <v-layout>
     <v-flex>
       <v-card>
-        <v-flex>
+        <v-flex py-3 px-3>
           <timeline>
             <div v-for="(item, index) in archiveList" :key="index">
               <timeline-title>{{item.archiveTime|formatDate}}</timeline-title>

@@ -29,8 +29,10 @@
     <strong>友链</strong>
   </v-flex>
   <v-flex :key=item.id v-for="item in this.friendLink">
-    <img src="http://www.google.com/s2/favicons?domain=www.zhihu.com"/>
-    <a :href="item.link">{{item.linkTitle}}</a>
+    <v-avatar size="16px">
+      <img :src="'http://www.google.com/s2/favicons?domain='+item.link">
+    </v-avatar>
+    <v-btn small flat outline @click="see(item.link)">{{item.linkTitle}}</v-btn>
   </v-flex>
 </v-card>
 </template>

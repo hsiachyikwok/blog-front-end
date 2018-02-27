@@ -66,6 +66,22 @@ export default new Router({
             title: '归档'
           }
         },
+        {
+          path: '/a',
+          component: articlelist,
+          name: 'a',
+          meta: {
+            title: '分类-文章'
+          }
+        },
+        {
+          path: '/b',
+          component: articlelist,
+          name: 'b',
+          meta: {
+            title: '标签-文章'
+          }
+        },
       ]
     },
     {

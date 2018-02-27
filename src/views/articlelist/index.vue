@@ -1,6 +1,11 @@
 <template>
 <v-container>
   <v-layout column>
+    <v-flex v-if="btnFlag">
+      <v-btn outline flat color="pink">
+        {{btnDoc}}
+      </v-btn>
+    </v-flex>
     <v-flex :key=item.id v-for="item in this.articleList" mb-3 text-xs-left>
       <article-card :article="item"></article-card>
     </v-flex>
@@ -20,16 +25,34 @@ export default {
   data() {
     return {
       page: 1,
-      articleList: ''
+      articleList: '',
+      btnFlag: false,
+      btnDoc: 'java'
     }
   },
   components: {
     ArticleCard
   },
   mounted() {
-    api.article.getArticleListByState(1).then(res => {
-      this.articleList = res.body
-    }, error => console.log(error))
+    var type = this.$router.currentRoute.query.p
+    if (type === undefined) { //首页文章
+      api.article.getArticleListByState(1).then(res => {
+        this.articleList = res.body
+      }, error => console.log(error))
+    } else {
+      this.btnDoc = this.$router.currentRoute.query.doc
+      this.btnFlag = true
+      //分类文章category
+      if (type === 'category') {
+        api.article.getArticleListByCategory(this.btnDoc).then(res => {
+          this.articleList = res.body
+        }, error => console.log(error))
+      } else { //标签文章tag
+        api.article.getArticleListByTag(this.btnDoc).then(res => {
+          this.articleList = res.body
+        }, error => console.log(error))
+      }
+    }
   }
 }
 </script>

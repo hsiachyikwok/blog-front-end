@@ -4,7 +4,7 @@
     <v-flex>
       <v-card>
         <svg :width='width' :height='height' @mousemove='listener($event)'>
-        <a  href="javascript:void(0);" @click="getArticleByTag()" v-for='tag in tags'>
+        <a  href="javascript:void(0);" @click="getArticleByTag(tag.tagName)" v-for='tag in tags'>
           <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.tagName}}</text>
         </a>
       </svg>
@@ -88,8 +88,17 @@ export default {
       }
       this.tags = tags;
     },
-    getArticleByTag() {
-      console.log(121313)
+    getArticleByTag(tagName) {
+      this.$router.push({
+        name: 'b',
+        query: {
+          p: 'tag',
+          doc: tagName
+        },
+        // params: {
+        //   id: article.articleLink
+        // }
+      })
     }
   }
 

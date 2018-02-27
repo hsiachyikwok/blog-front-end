@@ -2,7 +2,7 @@ import service from './resource'
 
 export default {
   getArticleListByState(state) {
-    return service.get('/article/list/'+state)
+    return service.get('/article/list/' + state)
   },
 
   getArticle(id) {
@@ -19,5 +19,11 @@ export default {
 
   delArticle(id) {
     return service.delete('/article/' + id)
+  },
+  getArticleListByTag(tag) {
+    return service.get('/article/tag/' + tag)
+  },
+  getArticleListByCategory(category) {
+    return service.get('/article/category/' + category)
   }
 }

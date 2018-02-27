@@ -4,7 +4,7 @@
     <v-flex>
       <v-card height="600px">
         <v-flex py-5 px-5>
-          <v-chip label outline color="red" :key=item.id v-for="item in categoryList">
+          <v-chip label outline color="red" :key=item.id v-for="item in categoryList" @click="getArticleByCat(item.catName)">
             <!-- <v-avatar>{{item.catName|getFirstChar}}</v-avatar> -->
             {{item.catName}}
           </v-chip>
@@ -27,6 +27,20 @@ export default {
   //     return value.substr(0, 1)
   //   }
   // },
+  methods: {
+    getArticleByCat(catName) {
+      this.$router.push({
+        name: 'a',
+        query: {
+          p: 'category',
+          doc: catName
+        },
+        // params: {
+        //   id: article.articleLink
+        // }
+      })
+    }
+  },
   mounted() {
     api.category.getCategoryList().then(res => {
       this.categoryList = res.body

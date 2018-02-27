@@ -2,7 +2,7 @@
 <v-container>
   <v-layout>
     <v-flex>
-      <v-card>
+      <v-card height="600px">
         <svg :width='width' :height='height' @mousemove='listener($event)'>
         <a  href="javascript:void(0);" @click="getArticleByTag(tag.tagName)" v-for='tag in tags'>
           <text :x='tag.x' :y='tag.y' :font-size='20 * (600/(600-tag.z))' :fill-opacity='((400+tag.z)/600)'>{{tag.tagName}}</text>

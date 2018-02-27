@@ -67,7 +67,7 @@ export default new Router({
           }
         },
         {
-          path: '/tags',
+          path: '/category/article',
           component: articlelist,
           name: 'catArticle',
           meta: {
@@ -75,7 +75,7 @@ export default new Router({
           }
         },
         {
-          path: '/b',
+          path: '/tag/article',
           component: articlelist,
           name: 'tagArticle',
           meta: {

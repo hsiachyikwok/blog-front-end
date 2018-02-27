@@ -11,8 +11,8 @@
           <span>{{article.createTime|formatDate}}</span>
         </v-flex>
         <v-flex text-xs-left>
-          <i class="fas fa-user"></i>
-          <span>{{article.viewCount}}</span>
+          <!-- <i class="fas fa-user"></i>
+          <span>{{article.viewCount}}</span> -->
         </v-flex>
       </v-layout>
     </v-layout>

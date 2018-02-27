@@ -29,6 +29,7 @@
 
 <script>
 import api from '@/api'
+import storage from '@/utils/storage.js'
 export default {
   data() {
     return {

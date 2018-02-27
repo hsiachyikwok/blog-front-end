@@ -1,10 +1,13 @@
 <template>
 <v-flex ml-5>
-  <router-link to="/index">
+  <v-btn icon @click="goHomePage()">
+    <v-icon small>fa-h-square</v-icon>
+  </v-btn>
+  <!-- <router-link to="/">
     <v-btn icon>
       <v-icon small>fa-h-square</v-icon>
     </v-btn>
-  </router-link>
+  </router-link> -->
   首页
   <router-link to="/archive">
     <v-btn icon>
@@ -35,6 +38,11 @@
 
 <script>
 export default {
-  name: 'navigation'
+  name: 'navigation',
+  methods: {
+    goHomePage() {
+      window.location.href = "http://localhost:8080"
+    }
+  }
 }
 </script>

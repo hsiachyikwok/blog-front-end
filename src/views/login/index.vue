@@ -33,12 +33,17 @@ import storage from '@/utils/storage.js'
 export default {
   data() {
     return {
-
+      username: 'leapxia',
+      password: '12345'
     }
   },
   methods: {
     submit() {
-      api.auth.login().then(res => {
+      api.auth.login({
+        username: this.username,
+        password: this.password
+      }).then(res => {
+        storage.set("token",res.body)
         this.$router.push('/admin/articlemanage')
       }, error => console.log(error))
     }

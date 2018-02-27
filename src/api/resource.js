@@ -1,14 +1,24 @@
 import axios from 'axios'
-//import {stringify} from 'qs'
+import storage from '@/utils/storage.js'
+import {
+  stringify
+} from 'qs'
 
 const service = axios.create({
   baseURL: process.env.BASE_API
- })
+})
 //请求拦截
 service.interceptors.request.use(config => {
-  //后台管理要带上token
-  // const token = ''
-  // config.data = stringify({...config.data, token}) // querystring将json转form格式
+  const token = storage.get('token') ? storage.get('token') : ''
+  if (config.method.toUpperCase() === 'GET' || config.method.toUpperCase() === 'DELETE') { // querystring将json转from格式
+    config.params = { ...config.params,
+      token
+    }
+  } else {
+    config.data = stringify({ ...config.data,
+      token
+    })
+  }
   return config
 }, error => {
   console.log(error)
@@ -16,7 +26,7 @@ service.interceptors.request.use(config => {
 })
 //响应拦截
 service.interceptors.response.use(
-  response =>  {
+  response => {
     console.log(response.data)
     return response.data //返回响应数据
   },

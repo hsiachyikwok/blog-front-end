@@ -67,9 +67,9 @@ export default new Router({
           }
         },
         {
-          path: '/a',
+          path: '/tags',
           component: articlelist,
-          name: 'a',
+          name: 'catArticle',
           meta: {
             title: '分类-文章'
           }
@@ -77,7 +77,7 @@ export default new Router({
         {
           path: '/b',
           component: articlelist,
-          name: 'b',
+          name: 'tagArticle',
           meta: {
             title: '标签-文章'
           }

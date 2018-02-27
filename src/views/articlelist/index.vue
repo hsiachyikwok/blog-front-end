@@ -34,13 +34,13 @@ export default {
     ArticleCard
   },
   mounted() {
-    var type = this.$router.currentRoute.query.p
+    var type = this.$router.currentRoute.query.type
     if (type === undefined) { //首页文章
       api.article.getArticleListByState(1).then(res => {
         this.articleList = res.body
       }, error => console.log(error))
     } else {
-      this.btnDoc = this.$router.currentRoute.query.doc
+      this.btnDoc = this.$router.currentRoute.query.p
       this.btnFlag = true
       //分类文章category
       if (type === 'category') {

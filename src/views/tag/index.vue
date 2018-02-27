@@ -90,14 +90,11 @@ export default {
     },
     getArticleByTag(tagName) {
       this.$router.push({
-        name: 'b',
+        name: 'tagArticle',
         query: {
-          p: 'tag',
-          doc: tagName
-        },
-        // params: {
-        //   id: article.articleLink
-        // }
+          type: 'tag',
+          p: tagName
+        }
       })
     }
   }

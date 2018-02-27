@@ -30,14 +30,11 @@ export default {
   methods: {
     getArticleByCat(catName) {
       this.$router.push({
-        name: 'a',
+        name: 'catArticle',
         query: {
-          p: 'category',
-          doc: catName
-        },
-        // params: {
-        //   id: article.articleLink
-        // }
+          type: 'category',
+          p: catName
+        }
       })
     }
   },

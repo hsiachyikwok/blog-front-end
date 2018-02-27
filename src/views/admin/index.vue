@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import api from '@/api'
 export default {
   data() {
     return {
@@ -80,8 +81,9 @@ export default {
       this.$router.push('/admin/commentmanage')
     },
     exit() {
-      //console.log(title)
-      this.$router.push('/index')
+      api.auth.logout().then(res => {
+        this.$router.push('/index')
+      }, error => console.log(error))
     },
     menuActions(title) {
       if (title === '退出') {

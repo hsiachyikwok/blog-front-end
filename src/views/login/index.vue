@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import api from '@/api'
 export default {
   data() {
     return {
@@ -36,7 +37,9 @@ export default {
   },
   methods: {
     submit() {
-      this.$router.push('/admin/articlemanage')
+      api.auth.login().then(res => {
+        this.$router.push('/admin/articlemanage')
+      }, error => console.log(error))
     }
   }
 }

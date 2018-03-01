@@ -52,7 +52,14 @@ export default {
   },
   methods: {
     updateConfig() {
-
+      this.configForm.createTime = undefined
+      this.configForm.updateTime = undefined
+      api.config.updateConfig(this.configForm).then(res => {
+        api.config.getConfig().then(res => {
+          this.configForm = res.body
+          storage.set('config', res.body)
+        }, error => console.log(error))
+      }, error => console.log(error))
     }
   },
   mounted() {

@@ -3,9 +3,10 @@ import storage from '@/utils/storage.js'
 import {
   stringify
 } from 'qs'
-axios.defaults.withCredentials=true
+//axios.defaults.withCredentials = true
 const service = axios.create({
-  baseURL: process.env.BASE_API
+  baseURL: process.env.BASE_API,
+  withCredentials: true
 })
 //请求拦截
 service.interceptors.request.use(config => {

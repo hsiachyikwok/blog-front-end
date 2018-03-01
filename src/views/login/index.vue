@@ -1,6 +1,9 @@
 <template>
 <v-app>
   <v-content>
+    <v-alert type="error" :value="alert" transition="scale-transition">
+      用户名或密码错误
+    </v-alert>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
@@ -35,6 +38,7 @@ export default {
     return {
       username: '',
       password: '',
+      alert: false,
       valid: false,
       usernameRules: [v => !!v || '用户名不能为空'],
       passwordRules: [v => !!v || '密码不能为空']
@@ -49,7 +53,10 @@ export default {
         }).then(res => {
           storage.set("token", res.body)
           this.$router.push('/admin/articlemanage')
-        }, error => console.log(error))
+        }, error => {
+          console.log(error)
+          this.alert = true
+        })
       }
     }
   }

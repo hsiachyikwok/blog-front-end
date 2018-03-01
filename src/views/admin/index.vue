@@ -84,6 +84,7 @@ export default {
     exit() {
       api.auth.logout().then(res => {
         this.$router.push('/index')
+        storage.remove('token')
       }, error => console.log(error))
     },
     menuActions(title) {

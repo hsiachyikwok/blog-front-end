@@ -1,6 +1,6 @@
 <template>
-<v-container fluid grid-list-md text-xs-center>
-  <v-layout row>
+<v-container fluid grid-list-md>
+  <v-layout>
     <v-flex xs12>
       <v-form v-model="valid" ref="form">
         <v-text-field label="头像" v-model="configForm.avatar" :rules="nameRules"></v-text-field>
@@ -11,7 +11,7 @@
         <v-text-field label="MetaKeyWords" v-model="configForm.metaKeywords" :rules="nameRules"></v-text-field>
         <v-text-field label="MetaDesc" v-model="configForm.metaDesc" :rules="nameRules"></v-text-field>
         <v-text-field label="Footer" v-model="configForm.footer" :rules="nameRules"></v-text-field>
-        <v-text-field label="公告" v-model="configForm.notice" :rules="nameRules"></v-text-field>
+        <v-text-field label="##公告##markdown" v-model="configForm.notice" :rules="nameRules" textarea></v-text-field>
         <v-text-field label="允许评论" v-model="configForm.allowComment" :rules="nameRules"></v-text-field>
         <v-text-field label="文章列表样式" v-model="configForm.listStyle" :rules="nameRules"></v-text-field>
         <v-text-field label="最近评论数" v-model="configForm.recentCommentSize" :rules="nameRules"></v-text-field>
@@ -21,11 +21,15 @@
         <v-text-field label="最多评论显示数" v-model="configForm.mostCommentSize" :rules="nameRules"></v-text-field>
         <v-text-field label="待选标签显示数" v-model="configForm.usedTagSize" :rules="nameRules"></v-text-field>
         <v-text-field label="位置" v-model="configForm.location" :rules="nameRules"></v-text-field>
-        <v-text-field label="关于" v-model="configForm.about" :rules="nameRules"></v-text-field>
+        <v-text-field label="##关于##markdown" v-model="configForm.about" :rules="nameRules" textarea></v-text-field>
       </v-form>
     </v-flex>
-    <v-flex xs12>
-      <v-btn @click="updateConfig()">更新</v-btn>
+    <v-flex xs12></v-flex>
+  </v-layout>
+
+  <v-layout>
+    <v-flex>
+      <v-btn outline @click="updateConfig()">更新</v-btn>
     </v-flex>
   </v-layout>
 </v-container>

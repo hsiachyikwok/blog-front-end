@@ -54,7 +54,8 @@ export default {
   },
   methods: {
     see(url) {
-      window.location.href = url
+      //window.location.href = url
+      window.open(url)
     }
   },
   mounted() {

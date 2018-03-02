@@ -1,6 +1,6 @@
 <template>
 <div id="editor">
-  <mavon-editor :ishljs = "true" style="height: 100%"></mavon-editor>
+  <mavon-editor v-model="content" style="height: 100%"></mavon-editor>
 </div>
 </template>
 <script>
@@ -10,6 +10,11 @@ import {
 import 'mavon-editor/dist/css/index.css'
 export default {
   name: 'editor',
+  data() {
+    return {
+      content: '# fdsfs'
+    }
+  },
   components: {
     mavonEditor
   }

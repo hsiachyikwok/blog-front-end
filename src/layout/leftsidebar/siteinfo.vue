@@ -18,7 +18,9 @@
       <v-icon small>mail</v-icon>
     </v-btn>
     <v-btn icon @click="see('https://github.com/hsiachyikwok')">
-
+      <v-avatar size="22px">
+        <img src="../../../static/github.png" />
+      </v-avatar>
     </v-btn>
     <v-btn icon>
       <v-icon>rss_feed</v-icon>

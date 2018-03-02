@@ -40,9 +40,9 @@
 export default {
   name: 'navigation',
   methods: {
-    goHomePage() {
-      window.location.href = "http://localhost:8080"
-    }
+    // goHomePage() {
+    //   window.location.href = "http://localhost:8080"
+    // }
   }
 }
 </script>

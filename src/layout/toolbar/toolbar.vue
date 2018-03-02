@@ -10,9 +10,11 @@
       </v-list-tile>
     </v-list>
   </v-menu>
-  <v-toolbar-title>
-    {{blogTitle}}
-  </v-toolbar-title>
+  <router-link to="/index">
+    <v-toolbar-title>
+      {{blogTitle}}
+    </v-toolbar-title>
+  </router-link>
   <navigation></navigation>
   <v-spacer></v-spacer>
   <v-btn icon>
@@ -33,7 +35,7 @@ export default {
         title: '管理'
       }],
       blogTitle: '',
-      favicon:''
+      favicon: ''
     }
   },
   methods: {

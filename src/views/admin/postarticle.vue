@@ -16,11 +16,12 @@
       <v-text-field  v-model="articleInfo.tags" label="标签"></v-text-field>
   </v-flex>
   <v-flex>
-    <v-text-field v-model="articleInfo.brefIntro" label="简介" textarea></v-text-field>
+    <v-text-field v-model="articleInfo.brefIntro" label="##简介##支持markdown" textarea></v-text-field>
   </v-flex>
   <v-flex>
-    <v-btn outline @click="submit(1)">发布</v-btn>
-    <v-btn  outline @click="submit(2)">存为草稿</v-btn>
+    <v-btn outline @click="submit(1)" v-if="true">发布</v-btn>
+    <v-btn outline @click="submit(0)" v-else>取消发布</v-btn>
+    <v-btn  outline @click="submit(2)" v-if="true">存为草稿</v-btn>
   </v-flex>
   </v-layout>
 </v-container>
@@ -36,12 +37,12 @@ export default {
   data() {
     return {
       articleInfo: {
-        articleTitle: '1',
-        articleLink: '1',
+        articleTitle: '',
+        articleLink: '',
         type: '',
-        tags: '1',
+        tags: '',
         content: '',
-        brefIntro: '1',
+        brefIntro: '',
       }
     }
   },

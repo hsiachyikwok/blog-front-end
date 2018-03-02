@@ -4,7 +4,7 @@
     <v-list dense>
       <v-list-tile @click="jumpToArticleManage">
         <v-list-tile-action>
-          <v-icon>fa-paper-plane</v-icon>
+          <v-icon>home</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>文章管理</v-list-tile-title>
@@ -12,7 +12,7 @@
       </v-list-tile>
       <v-list-tile @click="jumpToCommentManage">
         <v-list-tile-action>
-          <v-icon>fa-comment</v-icon>
+          <v-icon>home</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>评论管理</v-list-tile-title>
@@ -20,7 +20,7 @@
       </v-list-tile>
       <v-list-tile @click="jumpToSettingsManage">
         <v-list-tile-action>
-          <v-icon>fa-cogs</v-icon>
+          <v-icon>home</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>设置</v-list-tile-title>
@@ -28,7 +28,7 @@
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
-  <v-toolbar color="indigo" dark fixed app>
+  <v-toolbar color="indigo" dark  app>
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     <v-spacer></v-spacer>
     <div>

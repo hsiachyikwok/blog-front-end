@@ -2,7 +2,7 @@
 <v-container fluid grid-list-md text-xs-center>
   <v-layout row>
     <v-flex xs12>
-      <v-form v-model="valid">
+      <v-form v-model="valid" ref="form">
         <v-text-field label="头像" v-model="configForm.avatar" :rules="nameRules"></v-text-field>
         <v-text-field label="博客标题" v-model="configForm.blogTitle" :rules="nameRules"></v-text-field>
         <v-text-field label="博客子标题" v-model="configForm.blogSubTitle" :rules="nameRules"></v-text-field>
@@ -52,8 +52,13 @@ export default {
   },
   methods: {
     updateConfig() {
+      if (!this.$refs.form.validate()) {
+        return false
+      }
       this.configForm.createTime = undefined
       this.configForm.updateTime = undefined
+      this.configForm.username = undefined
+      this.configForm.password = undefined
       api.config.updateConfig(this.configForm).then(res => {
         api.config.getConfig().then(res => {
           this.configForm = res.body

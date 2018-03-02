@@ -13,6 +13,7 @@ import login from '@/views/login'
 import articlemanage from '@/views/admin/articlemanage'
 import settingsmanage from '@/views/admin/settingsmanage'
 import commentmanage from '@/views/admin/commentmanage'
+import postarticle from '@/views/admin/postarticle'
 
 Vue.use(Router)
 export default new Router({
@@ -107,7 +108,14 @@ export default new Router({
           meta: {
             title: '评论管理'
           }
-        }
+        },
+        {
+          path: '/admin/postarticle',
+          component: postarticle,
+          meta: {
+            title: '文章管理'
+          }
+        },
       ]
     },
     {

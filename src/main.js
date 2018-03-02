@@ -8,9 +8,11 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/googlecode.css'
-import VueHighlightJS from 'vue-highlightjs'
-
-Vue.use(VueHighlightJS)
+//import VueHighlightJS from 'vue-highlightjs'
+//import mavonEditor from 'mavon-editor'
+//import 'mavon-editor/dist/css/index.css'
+//Vue.use(mavonEditor)
+//Vue.use(VueHighlightJS)
 Vue.use(VueMarkdown);
 Vue.use(Vuetify);
 Vue.config.productionTip = false
@@ -60,6 +62,8 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })

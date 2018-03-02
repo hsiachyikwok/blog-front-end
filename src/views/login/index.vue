@@ -46,18 +46,19 @@ export default {
   },
   methods: {
     submit() {
-      if (this.$refs.form.validate()) {
-        api.auth.login({
-          username: this.username,
-          password: this.password
-        }).then(res => {
-          storage.set("token", res.body)
-          this.$router.push('/admin/articlemanage')
-        }, error => {
-          console.log(error)
-          this.alert = true
-        })
+      if (!this.$refs.form.validate()) {
+        return false
       }
+      api.auth.login({
+        username: this.username,
+        password: this.password
+      }).then(res => {
+        storage.set("token", res.body)
+        this.$router.push('/admin/articlemanage')
+      }, error => {
+        console.log(error)
+        this.alert = true
+      })
     }
   }
 }

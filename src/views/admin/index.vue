@@ -28,7 +28,7 @@
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
-  <v-toolbar color="indigo" dark  app>
+  <v-toolbar color="blue" dark app>
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     <v-spacer></v-spacer>
     <div>
@@ -47,7 +47,7 @@
   <v-content>
     <router-view/>
   </v-content>
-  <v-footer color="indigo" app>
+  <v-footer color="blue" app>
     <span class="white--text">&copy; 2018 powered by vuetify</span>
   </v-footer>
 </v-app>

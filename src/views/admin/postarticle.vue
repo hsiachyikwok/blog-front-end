@@ -1,6 +1,9 @@
 <template>
 <v-container fill-height fluid>
-  <v-layout column nowrap>
+  <v-layout column>
+    <v-alert type="error" :value="alert" transition="scale-transition">
+      用户名或密码错误
+    </v-alert>
   <v-flex>
     <v-text-field v-model="articleInfo.articleTitle"  label="标题"></v-text-field>
   </v-flex>
@@ -43,7 +46,8 @@ export default {
         tags: '',
         content: '',
         brefIntro: '',
-      }
+      },
+      alert:true
     }
   },
   methods: {

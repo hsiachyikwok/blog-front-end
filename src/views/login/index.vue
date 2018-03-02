@@ -14,13 +14,13 @@
             </v-toolbar>
             <v-card-text>
               <v-form v-model="valid" ref="form">
-                <v-text-field prepend-icon="person" name="login" label="用户名" type="text" v-model="username" :rules="usernameRules" :counter="10"></v-text-field>
-                <v-text-field prepend-icon="lock" name="password" label="密码" id="password" type="password" :rules="passwordRules" :counter="20" v-model="password"></v-text-field>
+                <v-text-field prepend-icon="person" name="login" label="用户名" type="text" v-model="username" :rules="usernameRules" :counter="10" @focus="hiddenAlert()"></v-text-field>
+                <v-text-field prepend-icon="lock" name="password" label="密码" id="password" type="password" :rules="passwordRules" :counter="20" v-model="password" @focus="hiddenAlert()"></v-text-field>
               </v-form>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" @click="submit">登录</v-btn>
+              <v-btn color=" primary " @click="submit ">登录</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -59,6 +59,9 @@ export default {
         console.log(error)
         this.alert = true
       })
+    },
+    hiddenAlert() {
+      this.alert = false
     }
   }
 }

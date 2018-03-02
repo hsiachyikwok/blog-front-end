@@ -22,12 +22,12 @@
   </v-card-text>
   <v-divider></v-divider>
   <v-card-actions>
-    <i class="fas fa-tag"></i>
+    <v-icon>style</v-icon>
     <v-flex>
       {{article.tags}}
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn flat  round  outline color="indigo" @click.native="readmore(article)">阅读更多</v-btn>
+    <v-btn flat outline round color="blue" @click.native="readmore(article)">阅读更多</v-btn>
   </v-card-actions>
 </v-card>
 </template>

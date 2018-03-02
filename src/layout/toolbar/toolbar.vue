@@ -16,7 +16,7 @@
   <navigation></navigation>
   <v-spacer></v-spacer>
   <v-btn icon>
-    <v-icon>fa-search</v-icon>
+    <v-icon>search</v-icon>
   </v-btn>
   <v-text-field name="search" label="搜索" id="search">
   </v-text-field>

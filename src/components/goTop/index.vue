@@ -1,7 +1,7 @@
 <template>
 <v-flex>
   <v-fab-transition>
-    <v-btn @click="goTop" color="pink" dark fab bottom right fixed v-show="hidden">
+    <v-btn  @click="goTop" color="pink" dark fab bottom right fixed v-show="hidden">
       <v-icon>expand_less</v-icon>
     </v-btn>
   </v-fab-transition>

@@ -8,20 +8,20 @@
   <v-flex mb-3>
     <strong>{{blogSubTitle}}</strong>
   </v-flex>
-  <v-icon>location_on</v-icon>
+  <v-icon>place</v-icon>
   <v-flex>
     {{location}}
   </v-flex>
   <v-divider></v-divider>
   <v-flex>
     <v-btn icon>
-      <v-icon small>fa-envelope</v-icon>
+      <v-icon small>mail</v-icon>
     </v-btn>
     <v-btn icon @click="see('https://github.com/hsiachyikwok')">
-      <i style="width:26px;height:26px" class="fab fa-github"></i>
+
     </v-btn>
     <v-btn icon>
-      <v-icon standard>fa-rss-square</v-icon>
+      <v-icon>rss_feed</v-icon>
     </v-btn>
   </v-flex>
   <v-divider></v-divider>

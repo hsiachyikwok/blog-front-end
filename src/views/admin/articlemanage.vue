@@ -1,41 +1,43 @@
 <template>
-<v-container fluid fill-height>
+<v-container fill-height fluid grid-list-md column>
   <v-layout>
-    <div>
-      <v-dialog v-model="dialog" max-width="500px">
-        <v-btn color="primary" dark slot="activator" class="mb-2">New Item</v-btn>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Dessert name" v-model="editedItem.name"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Calories" v-model="editedItem.calories"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Fat (g)" v-model="editedItem.fat"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Carbs (g)" v-model="editedItem.carbs"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field label="Protein (g)" v-model="editedItem.protein"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click.native="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" flat @click.native="save">Save</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+    <!-- <v-dialog v-model="dialog" max-width="500px">
+      <v-btn color="primary" dark slot="activator" class="mb-2">New Item</v-btn>
+      <v-card>
+        <v-card-title>
+          <span class="headline">{{ formTitle }}</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Dessert name" v-model="editedItem.name"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Calories" v-model="editedItem.calories"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Fat (g)" v-model="editedItem.fat"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Carbs (g)" v-model="editedItem.carbs"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Protein (g)" v-model="editedItem.protein"></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click.native="close">Cancel</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="save">Save</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog> -->
+
+
+    <v-flex xs22>
       <v-data-table :headers="headers" :items="items" hide-actions class="elevation-1">
         <template slot="items" slot-scope="props">
           <td>{{ props.item.name }}</td>
@@ -56,10 +58,12 @@
           <v-btn color="primary" @click="initialize">Reset</v-btn>
         </template>
       </v-data-table>
-      <!-- <v-btn dark fab right fixed color="pink">
+    </v-flex>
+    <v-flex xs2>
+      <v-btn fixd dark fab color="pink" @click="postArticle()">
         <v-icon>add</v-icon>
-      </v-btn> -->
-    </div>
+      </v-btn>
+    </v-flex>
   </v-layout>
 </v-container>
 </template>
@@ -203,6 +207,10 @@ export default {
           protein: 7
         }
       ]
+    },
+
+    postArticle() {
+      this.$router.push('/admin/postarticle')
     },
 
     editItem(item) {

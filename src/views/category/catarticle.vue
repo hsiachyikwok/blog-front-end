@@ -10,7 +10,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination @input="pageChange()" :length="this.pages" v-model="page" :total-visible="7" flat circle>
+      <v-pagination @input="pageChange()" :length="this.pages" v-model="this.query.pageNum" :total-visible="7" flat circle>
       </v-pagination>
     </v-flex>
   </v-layout>

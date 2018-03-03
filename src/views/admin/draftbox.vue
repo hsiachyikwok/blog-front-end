@@ -4,13 +4,9 @@
     <v-flex xs22>
       <v-card>
         <v-card-title>
-          <v-flex>
-            <v-chip label>文章管理</v-chip>
-          </v-flex>
-          <v-spacer></v-spacer>
-          <v-text-field append-icon="search" label="搜索" single-line hide-details v-model="search"></v-text-field>
+          <v-chip label>草稿箱</v-chip>
         </v-card-title>
-        <v-data-table :headers="headers" :items="items" :search="search" :pagination.sync="pagination" :total-items="this.pagination.totalItems" :loading="loading" class="elevation-1">
+        <v-data-table :headers="headers" :items="items" :pagination.sync="query" hide-actions :loading="loading">
           <template slot="items" slot-scope="props">
          <td>{{props.item.articleTitle }}</td>
          <td class="text-xs-right">{{ props.item.tags }}</td>
@@ -26,8 +22,10 @@
          </td>
        </template>
         </v-data-table>
+        <div class="text-xs-center pt-2">
+          <v-pagination v-model="query.pageNum" :length="pages" :total-visible="7" @input="pageChange()"></v-pagination>
+        </div>
       </v-card>
-
     </v-flex>
     <v-flex xs2>
       <v-btn fixd dark fab color="pink" @click="postArticle()">
@@ -41,17 +39,14 @@
 import api from '@/api'
 export default {
   data: () => ({
-    loading: false,
     items: [],
+    pages: 0,
+    loading: false,
     query: {
       state: '0',
       pageNum: 1,
-      pageSize: 5
+      pageSize: 5,
     },
-    pagination: {
-      totalItems: 10
-    },
-    search: '',
     headers: [{
         text: '标题',
         align: 'left',
@@ -84,59 +79,27 @@ export default {
     this.loading = true
     this.getArticles()
   },
-  computed: {
-    pages() {
-      if (this.pagination.rowsPerPage == null ||
-        this.pagination.totalItems == null
-      ) return 0
-
-      return Math.ceil(this.pagination.totalItems / this.pagination.rowsPerPage)
-    }
-  },
-
   methods: {
-
     getArticles() {
       api.article.getArticleListByState(this.query).then(res => {
         this.items = res.body.list
+        this.pages = res.body.pages
         this.loading = false
-        //this.pages = res.body.pages
       }, error => console.log(error))
     },
-
-
+    pageChange() {
+      this.getArticles()
+    },
     postArticle() {
       this.$router.push('/admin/postarticle')
     },
-
     editItem(item) {
-      // this.editedIndex = this.items.indexOf(item)
-      // this.editedItem = Object.assign({}, item)
-      // this.dialog = true
       this.$router.push('/admin/postarticle')
     },
-
-    //   deleteItem(item) {
-    //     const index = this.items.indexOf(item)
-    //     confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
-    //   },
-    //
-    //   close() {
-    //     this.dialog = false
-    //     setTimeout(() => {
-    //       this.editedItem = Object.assign({}, this.defaultItem)
-    //       this.editedIndex = -1
-    //     }, 300)
-    //   },
-    //
-    //   save() {
-    //     if (this.editedIndex > -1) {
-    //       Object.assign(this.items[this.editedIndex], this.editedItem)
-    //     } else {
-    //       this.items.push(this.editedItem)
-    //     }
-    //     this.close()
-    //   }
+    deleteItem(item) {
+      const index = this.items.indexOf(item)
+      confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+    }
   }
 }
 </script>

@@ -29,7 +29,11 @@ import api from '@/api'
 export default {
   data() {
     return {
-      archiveList: []
+      archiveList: [],
+      query: {
+        pageNum: 1,
+        pageSize: 2
+      }
     }
   },
   components: {
@@ -44,7 +48,7 @@ export default {
     }
   },
   mounted() {
-    api.archive.getArchiveList().then(res => {
+    api.archive.getArchiveList(this.query).then(res => {
       this.archiveList = res.body
     }, error => console.log(error))
   }

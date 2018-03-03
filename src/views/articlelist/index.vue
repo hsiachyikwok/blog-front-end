@@ -10,7 +10,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination  :length="5" v-model="page" flat circle>
+      <v-pagination :length="5" v-model="page" flat circle>
       </v-pagination>
     </v-flex>
   </v-layout>
@@ -27,7 +27,12 @@ export default {
       page: 1,
       articleList: '',
       btnFlag: false,
-      btnDoc: 'java'
+      btnDoc: 'java',
+      query: {
+        state: '1',
+        pageNum: 1,
+        pageSize: 2
+      }
     }
   },
   components: {
@@ -36,7 +41,7 @@ export default {
   mounted() {
     var type = this.$router.currentRoute.query.type
     if (type === undefined) { //首页文章
-      api.article.getArticleListByState(1).then(res => {
+      api.article.getArticleListByState(this.query).then(res => {
         this.articleList = res.body
       }, error => console.log(error))
     } else {

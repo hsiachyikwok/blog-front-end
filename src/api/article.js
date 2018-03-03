@@ -1,8 +1,11 @@
 import service from './resource'
 
 export default {
-  getArticleListByState(state) {
-    return service.get('/article/list/' + state)
+  getArticleListByState(data) {
+    return service.post('/article/list/' + data.state, {
+      pageNum: data.pageNum,
+      pageSize: data.pageSize
+    })
   },
 
   getArticle(id) {
@@ -20,10 +23,16 @@ export default {
   delArticle(id) {
     return service.delete('/article/' + id)
   },
-  getArticleListByTag(tag) {
-    return service.get('/article/tag/' + tag)
+  getArticleListByTag(data) {
+    return service.post('/article/tag/' + tag, {
+      pageNum: data.pageNum,
+      pageSize: data.pageSize
+    })
   },
-  getArticleListByCategory(category) {
-    return service.get('/article/category/' + category)
+  getArticleListByCategory(data) {
+    return service.post('/article/category/' + category, {
+      pageNum: data.pageNum,
+      pageSize: data.pageSize
+    })
   }
 }

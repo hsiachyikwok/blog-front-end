@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     api.archive.getArchiveList(this.query).then(res => {
-      this.archiveList = res.body
+      this.archiveList = res.body.list
     }, error => console.log(error))
   }
 

@@ -10,7 +10,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination :length="this.pages" v-model="page" :total-visible="7" flat circle>
+      <v-pagination @input="pageChange()" :length="this.pages" v-model="page" :total-visible="7" flat circle>
       </v-pagination>
     </v-flex>
   </v-layout>
@@ -36,14 +36,22 @@ export default {
   components: {
     ArticleCard
   },
-  mounted() {
-    this.query.category = this.$router.currentRoute.query.catName
-    console.log(this.query.category)
-    api.article.getArticleListByCategory(this.query).then(res => {
-      this.articleList = res.body.list
-      this.pages = res.body.pages
-    }, error => console.log(error))
+  methods: {
+    pageChange() {
+      this.getArticles()
+    },
+    getArticles() {
+      this.query.category = this.$router.currentRoute.query.catName
+      console.log(this.query.category)
+      api.article.getArticleListByCategory(this.query).then(res => {
+        this.articleList = res.body.list
+        this.pages = res.body.pages
+      }, error => console.log(error))
 
+    }
+  },
+  mounted() {
+    this.getArticles()
   }
 }
 </script>

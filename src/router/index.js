@@ -13,6 +13,7 @@ import login from '@/views/login'
 import articlemanage from '@/views/admin/articlemanage'
 import settingsmanage from '@/views/admin/settingsmanage'
 import commentmanage from '@/views/admin/commentmanage'
+import draftbox from '@/views/admin/draftbox'
 import postarticle from '@/views/admin/postarticle'
 import catarticlelist from '@/views/category/catarticle'
 import tagarticlelist from '@/views/tag/tagarticle'
@@ -102,6 +103,13 @@ export default new Router({
           component: settingsmanage,
           meta: {
             title: '设置管理'
+          }
+        },
+        {
+          path: '/admin/draftbox',
+          component: draftbox,
+          meta: {
+            title: '草稿箱'
           }
         },
         {

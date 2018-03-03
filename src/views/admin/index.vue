@@ -2,7 +2,7 @@
 <v-app>
   <v-navigation-drawer fixed v-model="drawer" app>
     <v-list dense>
-      <v-list-tile @click="jumpToArticleManage">
+      <v-list-tile @click="jumpToArticleManage()">
         <v-list-tile-action>
           <v-icon>send</v-icon>
         </v-list-tile-action>
@@ -10,7 +10,15 @@
           <v-list-tile-title>文章管理</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile @click="jumpToCommentManage">
+      <v-list-tile @click="jumpDraftBox()">
+        <v-list-tile-action>
+          <v-icon>drafts</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>草稿箱</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile @click="jumpToCommentManage()">
         <v-list-tile-action>
           <v-icon>comment</v-icon>
         </v-list-tile-action>
@@ -18,7 +26,7 @@
           <v-list-tile-title>评论管理</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile @click="jumpToSettingsManage">
+      <v-list-tile @click="jumpToSettingsManage()">
         <v-list-tile-action>
           <v-icon>settings</v-icon>
         </v-list-tile-action>
@@ -80,6 +88,9 @@ export default {
     },
     jumpToCommentManage() {
       this.$router.push('/admin/commentmanage')
+    },
+    jumpDraftBox() {
+      this.$router.push('/admin/draftbox')
     },
     exit() {
       api.auth.logout().then(res => {

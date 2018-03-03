@@ -48,8 +48,8 @@ export default {
     }
   },
   methods: {
-    submit(flag) {
-      this.articleInfo.type = flag
+    submit(value) {
+      this.articleInfo.type = value
       api.article.addArticle(this.articleInfo).then(res => {
 
       }, error => {
@@ -59,6 +59,9 @@ export default {
   },
   components: {
     mavonEditor
+  },
+  mounted() {
+    console.log(11222)
   }
 }
 </script>

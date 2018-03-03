@@ -41,10 +41,10 @@
 import api from '@/api'
 export default {
   data: () => ({
-    items: [],
     loading: false,
+    items: [],
     query: {
-      state: '1',
+      state: '0',
       pageNum: 1,
       pageSize: 5
     },
@@ -84,28 +84,35 @@ export default {
     this.loading = true
     this.getArticles()
   },
-  // computed: {
-  //   pages() {
-  //     if (this.pagination.rowsPerPage == null ||
-  //       this.pagination.totalItems == null
-  //     ) return 0
-  //
-  //     return Math.ceil(this.pagination.totalItems / this.pagination.rowsPerPage)
-  //   }
-  // },
+  computed: {
+    pages() {
+      if (this.pagination.rowsPerPage == null ||
+        this.pagination.totalItems == null
+      ) return 0
+
+      return Math.ceil(this.pagination.totalItems / this.pagination.rowsPerPage)
+    }
+  },
 
   methods: {
+
     getArticles() {
       api.article.getArticleListByState(this.query).then(res => {
         this.items = res.body.list
-        //this.pages = res.body.pages
         this.loading = false
+        //this.pages = res.body.pages
       }, error => console.log(error))
     },
+
+
     postArticle() {
       this.$router.push('/admin/postarticle')
     },
+
     editItem(item) {
+      // this.editedIndex = this.items.indexOf(item)
+      // this.editedItem = Object.assign({}, item)
+      // this.dialog = true
       this.$router.push('/admin/postarticle')
     },
 

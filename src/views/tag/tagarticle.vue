@@ -40,7 +40,7 @@ export default {
     this.query.tag = this.$router.currentRoute.query.tagName
     console.log(this.query.tag)
     api.article.getArticleListByTag(this.query).then(res => {
-      this.articleList = res.body
+      this.articleList = res.body.list
     }, error => console.log(error))
   }
 }

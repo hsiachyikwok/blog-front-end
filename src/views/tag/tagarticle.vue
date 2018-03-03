@@ -10,7 +10,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination :length="5" v-model="page" flat circle>
+      <v-pagination :length="this.pages" v-model="page" :total-visible="7" flat circle>
       </v-pagination>
     </v-flex>
   </v-layout>
@@ -24,12 +24,12 @@ export default {
   name: 'tagarticle',
   data() {
     return {
-      page: 1,
+      pages: 0,
       articleList: '',
       query: {
         tag: '',
         pageNum: 1,
-        pageSize: 2
+        pageSize: 5
       }
     }
   },
@@ -41,6 +41,7 @@ export default {
     console.log(this.query.tag)
     api.article.getArticleListByTag(this.query).then(res => {
       this.articleList = res.body.list
+      this.pages = res.body.pages
     }, error => console.log(error))
   }
 }

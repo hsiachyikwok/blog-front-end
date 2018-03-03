@@ -5,7 +5,7 @@
       <article-card :article="item"></article-card>
     </v-flex>
     <v-flex>
-      <v-pagination @input="pageChange()" :length="100" v-model="query.pageNum" :total-visible="5" flat circle>
+      <v-pagination :length="this.pages" v-model="query.pageNum" :total-visible="7" flat circle>
       </v-pagination>
     </v-flex>
   </v-layout>
@@ -19,12 +19,12 @@ export default {
   name: 'articlelist',
   data() {
     return {
-      page: 1,
       articleList: '',
+      pages:0,
       query: {
         state: '1',
         pageNum: 1,
-        pageSize: 3
+        pageSize: 5
       }
     }
   },
@@ -34,6 +34,7 @@ export default {
   mounted() {
     api.article.getArticleListByState(this.query).then(res => {
       this.articleList = res.body.list
+      this.pages = res.body.pages
     }, error => console.log(error))
   }
 }

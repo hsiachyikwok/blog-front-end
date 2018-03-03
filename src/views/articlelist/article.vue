@@ -24,7 +24,7 @@
   <v-card-actions>
     <v-icon>style</v-icon>
     <v-flex>
-      {{article.tags}}
+      {{article.tags|formatTags}}
     </v-flex>
     <v-spacer></v-spacer>
     <v-btn flat outline round color="blue" @click.native="readmore(article)">阅读更多</v-btn>
@@ -43,18 +43,20 @@ export default {
     article: ''
   },
   data() {
-    return {}
+    return {
+
+    }
   },
   methods: {
     readmore(article) {
-      if (article.articleLink === ''||article.articleLink===null) {
+      if (article.articleLink === '' || article.articleLink === null) {
         let date = new Date(article.createTime)
         article.articleLink = formatDate(date, 'yyyy-MM-dd')
       }
       this.$router.push({
         name: 'article',
-        query:{
-          id:article.id
+        query: {
+          id: article.id
         },
         params: {
           id: article.articleLink
@@ -69,6 +71,9 @@ export default {
     formatDate(time) {
       let date = new Date(time)
       return formatDate(date, 'yyyy-MM-dd hh:mm')
+    },
+    formatTags(tags){
+      return tags.substr(0,tags.length-1)
     }
   },
   mounted() {

@@ -38,6 +38,7 @@ export default {
   },
   mounted() {
     this.query.category = this.$router.currentRoute.query.catName
+    console.log(this.query.category)
     api.article.getArticleListByCategory(this.query).then(res => {
       this.articleList = res.body
     }, error => console.log(error))

@@ -38,6 +38,7 @@ export default {
   },
   mounted() {
     this.query.tag = this.$router.currentRoute.query.tagName
+    console.log(this.query.tag)
     api.article.getArticleListByTag(this.query).then(res => {
       this.articleList = res.body
     }, error => console.log(error))

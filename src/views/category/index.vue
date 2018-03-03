@@ -32,7 +32,7 @@ export default {
       this.$router.push({
         name: 'catArticle',
         query: {
-          p: catName
+          catName: catName
         }
       })
     }

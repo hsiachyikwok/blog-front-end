@@ -92,7 +92,7 @@ export default {
       this.$router.push({
         name: 'tagArticle',
         query: {
-          p: tagName
+          tagName: tagName
         }
       })
     }

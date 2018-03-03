@@ -32,7 +32,7 @@ export default {
       archiveList: [],
       query: {
         pageNum: 1,
-        pageSize: 2
+        pageSize: 100
       }
     }
   },

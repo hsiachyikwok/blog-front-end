@@ -14,6 +14,8 @@ import articlemanage from '@/views/admin/articlemanage'
 import settingsmanage from '@/views/admin/settingsmanage'
 import commentmanage from '@/views/admin/commentmanage'
 import postarticle from '@/views/admin/postarticle'
+import catarticlelist from '@/views/category/catarticle'
+import tagarticlelist from '@/views/tag/tagarticle'
 
 Vue.use(Router)
 export default new Router({
@@ -69,7 +71,7 @@ export default new Router({
         },
         {
           path: '/category/article',
-          component: articlelist,
+          component: catarticlelist,
           name: 'catArticle',
           meta: {
             title: '分类-文章'
@@ -77,7 +79,7 @@ export default new Router({
         },
         {
           path: '/tag/article',
-          component: articlelist,
+          component: tagarticlelist,
           name: 'tagArticle',
           meta: {
             title: '标签-文章'

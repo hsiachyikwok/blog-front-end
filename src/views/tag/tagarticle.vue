@@ -1,6 +1,11 @@
 <template>
 <v-container>
   <v-layout column>
+    <v-flex>
+      <v-btn outline flat color="pink">
+        {{this.query.tag}}
+      </v-btn>
+    </v-flex>
     <v-flex :key=item.id v-for="item in this.articleList" mb-3 text-xs-left>
       <article-card :article="item"></article-card>
     </v-flex>
@@ -13,16 +18,16 @@
 </template>
 
 <script>
-import ArticleCard from './article.vue'
+import ArticleCard from '@/views/articlelist/article'
 import api from '@/api'
 export default {
-  name: 'articlelist',
+  name: 'tagarticle',
   data() {
     return {
       page: 1,
       articleList: '',
       query: {
-        state: '1',
+        tag: '',
         pageNum: 1,
         pageSize: 2
       }
@@ -32,7 +37,8 @@ export default {
     ArticleCard
   },
   mounted() {
-    api.article.getArticleListByState(this.query).then(res => {
+    this.query.tag = this.$router.currentRoute.query.tagName
+    api.article.getArticleListByTag(this.query).then(res => {
       this.articleList = res.body
     }, error => console.log(error))
   }

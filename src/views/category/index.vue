@@ -32,7 +32,6 @@ export default {
       this.$router.push({
         name: 'catArticle',
         query: {
-          type: 'category',
           p: catName
         }
       })

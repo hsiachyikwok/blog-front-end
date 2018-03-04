@@ -66,7 +66,9 @@ export default {
     },
     submit() {
       this.getType()
-      api.article.addArticle(this.articleInfo).then(res => {}, error => {
+      api.article.addArticle(this.articleInfo).then(res => {
+        this.$toast.center('发布成功！');
+      }, error => {
         console.log(error)
       })
     },
@@ -74,14 +76,15 @@ export default {
       this.getType()
       this.articleInfo.createTime = undefined
       this.articleInfo.updateTime = undefined
-      api.article.updateArticle(this.articleInfo).then(res => {}, error => {
+      api.article.updateArticle(this.articleInfo).then(res => {
+        this.$toast.center('更新成功！');
+      }, error => {
         console.log(error)
       })
     },
     getArticle(id) {
       api.article.getArticle(id).then(res => {
         this.articleInfo = res.body
-        console.log(this.articleInfo)
       }, error => {
         console.log(error)
       })

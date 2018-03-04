@@ -64,6 +64,7 @@ export default {
       this.configForm.username = undefined
       this.configForm.password = undefined
       api.config.updateConfig(this.configForm).then(res => {
+        this.$toast.center('更新成功！');
         api.config.getConfig().then(res => {
           this.configForm = res.body
           storage.set('config', res.body)

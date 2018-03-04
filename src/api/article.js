@@ -17,7 +17,7 @@ export default {
   },
 
   updateArticle(data) {
-    return service.put('/article/update', data)
+    return service.post('/article/update', data)
   },
 
   delArticle(id) {

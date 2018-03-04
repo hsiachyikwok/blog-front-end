@@ -6,6 +6,14 @@ import router from './router'
 import VueMarkdown from 'vue-markdown'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import 'vue2-toast/lib/toast.css';
+import Toast from 'vue2-toast';
+Vue.use(Toast, {
+    defaultType: 'center',
+    duration: 1500,
+    wordWrap: true,
+    width: '150px'
+});
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/googlecode.css'
 //import VueHighlightJS from 'vue-highlightjs'

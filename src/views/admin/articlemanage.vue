@@ -94,6 +94,9 @@ export default {
     this.loading = true
     this.getArticles()
   },
+  components: {
+
+  },
   filters: {
     formatDate(time) {
       let date = new Date(time)
@@ -131,7 +134,9 @@ export default {
     },
     deleteArticle() {
       this.dialog = false
-      api.article.delArticle(this.deleteId).then(res => {}, error => console.log(error))
+      api.article.delArticle(this.deleteId).then(res => {
+        this.$toast.center('删除成功！');
+      }, error => console.log(error))
     }
   }
 }

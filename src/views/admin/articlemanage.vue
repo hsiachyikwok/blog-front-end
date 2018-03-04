@@ -1,6 +1,16 @@
 <template>
 <v-container fill-height fluid grid-list-md>
   <v-layout>
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">删除文章</v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" flat="flat" @click.native="deleteArticle()">是</v-btn>
+          <v-btn color="green darken-1" flat="flat" @click.native="dialog = false">否</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-flex xs22>
       <v-card>
         <v-card-title>
@@ -16,7 +26,7 @@
            <v-btn icon class="mx-0" @click="editItem(props.item)">
              <v-icon color="teal">edit</v-icon>
            </v-btn>
-           <v-btn icon class="mx-0" @click="deleteItem(props.item.id)">
+           <v-btn icon class="mx-0" @click="showDialog(props.item.id)">
              <v-icon color="pink">delete</v-icon>
            </v-btn>
          </td>
@@ -42,7 +52,9 @@ import {
 } from '@/utils/dateformat.js'
 export default {
   data: () => ({
+    deleteId: '',
     items: [],
+    dialog: false,
     pages: 0,
     loading: false,
     query: {
@@ -113,9 +125,13 @@ export default {
         }
       })
     },
-    deleteItem(id) {
-      console.log(id)
-      confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+    showDialog(id) {
+      this.dialog = true
+      this.deleteId = id
+    },
+    deleteArticle() {
+      this.dialog = false
+      api.article.delArticle(this.deleteId).then(res => {}, error => console.log(error))
     }
   }
 }

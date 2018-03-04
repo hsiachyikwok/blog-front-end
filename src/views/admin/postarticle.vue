@@ -69,6 +69,7 @@ export default {
       api.article.addArticle(this.articleInfo).then(res => {
         this.$toast.center('发布成功！');
       }, error => {
+        this.$toast.center('发布失败！');
         console.log(error)
       })
     },
@@ -79,6 +80,7 @@ export default {
       api.article.updateArticle(this.articleInfo).then(res => {
         this.$toast.center('更新成功！');
       }, error => {
+        this.$toast.center('更新失败！');
         console.log(error)
       })
     },

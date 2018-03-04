@@ -136,7 +136,11 @@ export default {
       this.dialog = false
       api.article.delArticle(this.deleteId).then(res => {
         this.$toast.center('删除成功！');
-      }, error => console.log(error))
+        this.getArticles()
+      }, error => {
+        this.$toast.center('删除失败！');
+        console.log(error)
+      })
     }
   }
 }

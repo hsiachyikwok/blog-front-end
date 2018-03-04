@@ -69,7 +69,10 @@ export default {
           this.configForm = res.body
           storage.set('config', res.body)
         }, error => console.log(error))
-      }, error => console.log(error))
+      }, error => {
+        this.$toast.center('更新失败！');
+        console.log(error)
+      })
     }
   },
   mounted() {

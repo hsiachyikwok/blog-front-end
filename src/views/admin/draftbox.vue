@@ -1,6 +1,16 @@
 <template>
 <v-container fill-height fluid grid-list-md>
   <v-layout>
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">删除文章</v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" flat="flat" @click.native="deleteArticle()">是</v-btn>
+          <v-btn color="green darken-1" flat="flat" @click.native="dialog = false">否</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-flex xs22>
       <v-card>
         <v-card-title>
@@ -9,14 +19,14 @@
         <v-data-table :headers="headers" :items="items" :pagination.sync="query" hide-actions :loading="loading">
           <template slot="items" slot-scope="props">
          <td>{{props.item.articleTitle }}</td>
-         <td class="text-xs-right">{{ props.item.tags|formatTags}}</td>
+         <td class="text-xs-right">{{ props.item.tags|formatTags }}</td>
          <td class="text-xs-right">{{ props.item.createTime|formatDate}}</td>
          <td class="text-xs-right">{{ props.item.updateTime|formatDate}}</td>
          <td class="justify-center layout px-0">
            <v-btn icon class="mx-0" @click="editItem(props.item)">
              <v-icon color="teal">edit</v-icon>
            </v-btn>
-           <v-btn icon class="mx-0" @click="deleteItem(props.item.id)">
+           <v-btn icon class="mx-0" @click="showDialog(props.item.id)">
              <v-icon color="pink">delete</v-icon>
            </v-btn>
          </td>
@@ -42,7 +52,9 @@ import {
 } from '@/utils/dateformat.js'
 export default {
   data: () => ({
+    deleteId: '',
     items: [],
+    dialog: false,
     pages: 0,
     loading: false,
     query: {
@@ -82,6 +94,9 @@ export default {
     this.loading = true
     this.getArticles()
   },
+  components: {
+
+  },
   filters: {
     formatDate(time) {
       let date = new Date(time)
@@ -113,8 +128,19 @@ export default {
         }
       })
     },
-    deleteItem(item) {
-      confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+    showDialog(id) {
+      this.dialog = true
+      this.deleteId = id
+    },
+    deleteArticle() {
+      this.dialog = false
+      api.article.delArticle(this.deleteId).then(res => {
+        this.$toast.center('删除成功！');
+        this.getArticles()
+      }, error => {
+        this.$toast.center('删除失败！');
+        console.log(error)
+      })
     }
   }
 }

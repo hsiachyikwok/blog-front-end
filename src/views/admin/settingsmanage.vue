@@ -61,7 +61,7 @@ export default {
       }
       this.configForm.createTime = undefined
       this.configForm.updateTime = undefined
-      this.configForm.username = undefined
+      this.configForm.userName = undefined
       this.configForm.password = undefined
       api.config.updateConfig(this.configForm).then(res => {
         this.$toast.center('更新成功！');

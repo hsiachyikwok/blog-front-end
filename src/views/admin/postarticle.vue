@@ -19,9 +19,26 @@
     <v-text-field v-model="articleInfo.brefIntro" label="##简介##支持markdown" textarea></v-text-field>
   </v-flex>
   <v-flex>
-    <v-btn outline @click="submit(1)" v-if="true">发布</v-btn>
-    <v-btn outline @click="submit(0)" v-else>取消发布</v-btn>
-    <v-btn outline @click="submit(2)" v-if="true">存为草稿</v-btn>
+    <v-container fill-height fluid grid-list-md>
+      <v-layout>
+        <v-flex xs2>
+          <v-radio-group v-model="radioGroup">
+          <v-radio
+            :label="`发布`"
+            :value="publish"
+          ></v-radio>
+          <v-radio
+            :label="`存为草稿`"
+            :value="draft"
+          ></v-radio>
+        </v-radio-group>
+      </v-flex>
+      </v-layout>
+    </v-container>
+  </v-flex>
+  <v-flex>
+    <v-btn outline @click="submit()" v-if="!isEdit">确定</v-btn>
+    <v-btn outline @click="update()" v-else>更新</v-btn>
   </v-flex>
   </v-layout>
 </v-container>
@@ -36,6 +53,10 @@ import api from '@/api'
 export default {
   data() {
     return {
+      radioGroup: 1,
+      publish: 1,
+      draft: 0,
+      isEdit: false,
       articleInfo: {
         articleTitle: '',
         articleLink: '',
@@ -48,17 +69,30 @@ export default {
     }
   },
   methods: {
-    submit(value) {
-      this.articleInfo.type = value
-      api.article.addArticle(this.articleInfo).then(res => {
-
-      }, error => {
+    doPublish() {
+      console.log(0)
+      this.draft = false
+    },
+    doDraft() {
+      console.log(1)
+      this.publish = false
+    },
+    submit() {
+      api.article.addArticle(this.articleInfo).then(res => {}, error => {
+        console.log(error)
+      })
+    },
+    update(value) {
+      //this.articleInfo.type = value
+      //this.articleInfo.isDel = value
+      api.updateArticle(this.articleInfo).then(res => {}, error => {
         console.log(error)
       })
     },
     getArticle(id) {
       api.article.getArticle(id).then(res => {
-
+        this.articleInfo = res.body
+        console.log(this.articleInfo)
       }, error => {
         console.log(error)
       })
@@ -69,7 +103,12 @@ export default {
   },
   mounted() {
     var id = this.$router.currentRoute.query.id
-    this.getArticle(id)
+    if (id !== undefined) {
+      this.isEdit = true
+      this.publish = false
+      this.draft = true
+      this.getArticle(id)
+    }
   }
 }
 </script>

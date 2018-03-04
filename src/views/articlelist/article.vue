@@ -7,7 +7,7 @@
       </v-flex>
       <v-layout row>
         <v-flex text-xs-right>
-          <span><i class="far fa-calendar-alt"></i></span>
+          <v-icon>event_note</v-icon>
           <span>{{article.createTime|formatDate}}</span>
         </v-flex>
         <v-flex text-xs-left>

@@ -9,14 +9,14 @@
         <v-data-table :headers="headers" :items="items" :pagination.sync="query" hide-actions :loading="loading">
           <template slot="items" slot-scope="props">
          <td>{{props.item.articleTitle }}</td>
-         <td class="text-xs-right">{{ props.item.tags }}</td>
-         <td class="text-xs-right">{{ props.item.createTime }}</td>
-         <td class="text-xs-right">{{ props.item.updateTime }}</td>
+         <td class="text-xs-right">{{ props.item.tags|formatTags}}</td>
+         <td class="text-xs-right">{{ props.item.createTime|formatDate}}</td>
+         <td class="text-xs-right">{{ props.item.updateTime|formatDate}}</td>
          <td class="justify-center layout px-0">
            <v-btn icon class="mx-0" @click="editItem(props.item)">
              <v-icon color="teal">edit</v-icon>
            </v-btn>
-           <v-btn icon class="mx-0" @click="deleteItem(props.item)">
+           <v-btn icon class="mx-0" @click="deleteItem(props.item.id)">
              <v-icon color="pink">delete</v-icon>
            </v-btn>
          </td>
@@ -37,6 +37,9 @@
 </template>
 <script>
 import api from '@/api'
+import {
+  formatDate
+} from '@/utils/dateformat.js'
 export default {
   data: () => ({
     items: [],
@@ -79,6 +82,15 @@ export default {
     this.loading = true
     this.getArticles()
   },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm')
+    },
+    formatTags(tags) {
+      return tags.substr(0, tags.length - 1)
+    }
+  },
   methods: {
     getArticles() {
       api.article.getArticleListByState(this.query).then(res => {
@@ -93,11 +105,15 @@ export default {
     postArticle() {
       this.$router.push('/admin/postarticle')
     },
-    editItem(item) {
-      this.$router.push('/admin/postarticle')
+    editItem(article) {
+      this.$router.push({
+        name: 'postarticle',
+        query: {
+          id: article.id
+        }
+      })
     },
     deleteItem(item) {
-      const index = this.items.indexOf(item)
       confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
     }
   }

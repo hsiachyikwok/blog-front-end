@@ -122,6 +122,7 @@ export default new Router({
         {
           path: '/admin/postarticle',
           component: postarticle,
+          name: 'postarticle',
           meta: {
             title: '文章管理'
           }

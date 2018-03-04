@@ -21,7 +21,7 @@
   <v-flex>
     <v-btn outline @click="submit(1)" v-if="true">发布</v-btn>
     <v-btn outline @click="submit(0)" v-else>取消发布</v-btn>
-    <v-btn  outline @click="submit(2)" v-if="true">存为草稿</v-btn>
+    <v-btn outline @click="submit(2)" v-if="true">存为草稿</v-btn>
   </v-flex>
   </v-layout>
 </v-container>
@@ -55,13 +55,21 @@ export default {
       }, error => {
         console.log(error)
       })
+    },
+    getArticle(id) {
+      api.article.getArticle(id).then(res => {
+
+      }, error => {
+        console.log(error)
+      })
     }
   },
   components: {
     mavonEditor
   },
   mounted() {
-    console.log(11222)
+    var id = this.$router.currentRoute.query.id
+    this.getArticle(id)
   }
 }
 </script>

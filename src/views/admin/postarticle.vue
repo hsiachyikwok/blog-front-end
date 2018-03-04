@@ -22,23 +22,14 @@
     <v-container fill-height fluid grid-list-md>
       <v-layout>
         <v-flex xs2>
-          <v-radio-group v-model="radioGroup">
-          <v-radio
-            :label="`发布`"
-            :value="publish"
-          ></v-radio>
-          <v-radio
-            :label="`存为草稿`"
-            :value="draft"
-          ></v-radio>
-        </v-radio-group>
+         <v-checkbox :label="`存为草稿`" v-model="isDraft"></v-checkbox>
       </v-flex>
       </v-layout>
     </v-container>
   </v-flex>
   <v-flex>
-    <v-btn outline @click="submit()" v-if="!isEdit">确定</v-btn>
-    <v-btn outline @click="update()" v-else>更新</v-btn>
+    <v-btn outline @click="submit()" v-if="!isEdit">发布</v-btn>
+    <v-btn outline @click="update()" v-else>发布</v-btn>
   </v-flex>
   </v-layout>
 </v-container>
@@ -53,9 +44,7 @@ import api from '@/api'
 export default {
   data() {
     return {
-      radioGroup: 1,
-      publish: 1,
-      draft: 0,
+      isDraft: false,
       isEdit: false,
       articleInfo: {
         articleTitle: '',
@@ -64,28 +53,28 @@ export default {
         tags: '',
         content: '',
         brefIntro: '',
-      },
-      alert: true
+      }
     }
   },
   methods: {
-    doPublish() {
-      console.log(0)
-      this.draft = false
-    },
-    doDraft() {
-      console.log(1)
-      this.publish = false
+    getType() {
+      if (this.isDraft) {
+        this.articleInfo.type = '0'
+      } else {
+        this.articleInfo.type = '1'
+      }
     },
     submit() {
+      this.getType()
       api.article.addArticle(this.articleInfo).then(res => {}, error => {
         console.log(error)
       })
     },
-    update(value) {
-      //this.articleInfo.type = value
-      //this.articleInfo.isDel = value
-      api.updateArticle(this.articleInfo).then(res => {}, error => {
+    update() {
+      this.getType()
+      this.articleInfo.createTime = undefined
+      this.articleInfo.updateTime = undefined
+      api.article.updateArticle(this.articleInfo).then(res => {}, error => {
         console.log(error)
       })
     },
@@ -105,8 +94,6 @@ export default {
     var id = this.$router.currentRoute.query.id
     if (id !== undefined) {
       this.isEdit = true
-      this.publish = false
-      this.draft = true
       this.getArticle(id)
     }
   }

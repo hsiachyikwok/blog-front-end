@@ -7,7 +7,7 @@
       </v-flex>
       <v-layout row>
         <v-flex text-xs-right>
-          <v-icon>event_note</v-icon>
+          <v-icon small>date_range</v-icon>
           <span>{{article.createTime|formatDate}}</span>
         </v-flex>
         <v-flex text-xs-left>

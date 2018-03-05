@@ -5,7 +5,7 @@
       <v-card>
         <v-flex px-3 py-3>
           <v-card-text>
-            <vue-markdown :source="content"></vue-markdown>
+            <vue-markdown :toc="true" :source="content"></vue-markdown>
           </v-card-text>
         </v-flex>
       </v-card>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import prism from 'prismjs'
 import api from '@/api'
 import VueMarkdown from 'vue-markdown'
 import comment from './comment'

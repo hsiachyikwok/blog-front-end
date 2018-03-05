@@ -8,6 +8,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import 'vue2-toast/lib/toast.css'
 import Toast from 'vue2-toast'
+
 Vue.use(Toast, {
   defaultType: 'center',
   duration: 1500,

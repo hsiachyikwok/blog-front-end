@@ -5,7 +5,7 @@ export default {
   login(data) {
     return service.post('/admin/login', {
       username: data.username,
-      password: md5(data.username+data.password)
+      password: md5(data.username + data.password)
     })
   },
   logout() {

@@ -1,8 +1,9 @@
 <template>
 <v-container fill-height fluid>
   <v-layout column>
+    <v-form v-model="valid" ref="form">
   <v-flex>
-    <v-text-field v-model="articleInfo.articleTitle"  label="标题"></v-text-field>
+    <v-text-field v-model="articleInfo.articleTitle"  :rules="nameRules" label="标题"></v-text-field>
   </v-flex>
   <v-flex mb-3>
     <div id="editor">
@@ -10,14 +11,15 @@
     </div>
   </v-flex>
   <v-flex>
-    <v-text-field  v-model="articleInfo.articleLink" label="访问链接"></v-text-field>
+    <v-text-field  v-model="articleInfo.articleLink" :rules="nameRules" label="访问链接"></v-text-field>
   </v-flex>
   <v-flex>
-      <v-text-field  v-model="articleInfo.tags" label="标签"></v-text-field>
+      <v-text-field  v-model="articleInfo.tags" :rules="nameRules" label="标签"></v-text-field>
   </v-flex>
   <v-flex>
-    <v-text-field v-model="articleInfo.brefIntro" label="##简介##支持markdown" textarea></v-text-field>
+    <v-text-field v-model="articleInfo.brefIntro" :rules="nameRules" label="##简介##支持markdown" textarea></v-text-field>
   </v-flex>
+    </v-form>
   <v-flex>
     <v-container fill-height fluid grid-list-md>
       <v-layout>
@@ -44,6 +46,10 @@ import api from '@/api'
 export default {
   data() {
     return {
+      valid: false,
+      nameRules: [
+        v => !!v || 'Value is required'
+      ],
       isDraft: false,
       isEdit: false,
       articleInfo: {
@@ -57,6 +63,15 @@ export default {
     }
   },
   methods: {
+    validateForm() {
+      if (!this.$refs.form.validate()) {
+        return false
+      } else if (this.articleInfo.content === '') {
+        this.$toast.center('请输入文章内容！');
+        return false
+      }
+      return true
+    },
     getType() {
       if (this.isDraft) {
         this.articleInfo.type = '0'
@@ -65,6 +80,10 @@ export default {
       }
     },
     submit() {
+      if (!this.validateForm()) {
+        console.log(111323232323)
+        return false
+      }
       this.getType()
       api.article.addArticle(this.articleInfo).then(res => {
         this.$toast.center('发布成功！');
@@ -74,6 +93,10 @@ export default {
       })
     },
     update() {
+      if (!this.validateForm()) {
+        console.log(111323232323)
+        return false
+      }
       this.getType()
       this.articleInfo.createTime = undefined
       this.articleInfo.updateTime = undefined

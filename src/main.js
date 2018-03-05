@@ -16,7 +16,7 @@ Vue.use(Toast, {
   defaultType: 'center',
   duration: 1500,
   wordWrap: true,
-  width: '150px'
+  width: '180px'
 });
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/googlecode.css'

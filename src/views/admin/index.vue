@@ -93,10 +93,9 @@ export default {
       this.$router.push('/admin/draftbox')
     },
     exit() {
-      api.auth.logout().then(res => {
-        storage.remove('token')
-      }, error => console.log(error))
+      api.auth.logout().then(res => {}, error => console.log(error))
       this.$router.push('/index')
+      storage.remove('token')
     },
     menuActions(title) {
       if (title === '退出') {

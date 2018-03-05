@@ -6,13 +6,17 @@ import router from './router'
 import VueMarkdown from 'vue-markdown'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import 'vue2-toast/lib/toast.css';
-import Toast from 'vue2-toast';
+import 'vue2-toast/lib/toast.css'
+import Toast from 'vue2-toast'
+//import storage from '@/utils/storage.js'
+// import {
+//   addRoutes
+// } from '@/utils/addroute.js'
 Vue.use(Toast, {
-    defaultType: 'center',
-    duration: 1500,
-    wordWrap: true,
-    width: '150px'
+  defaultType: 'center',
+  duration: 1500,
+  wordWrap: true,
+  width: '150px'
 });
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/googlecode.css'
@@ -62,6 +66,11 @@ Vue.directive('title', {
 })
 
 router.beforeEach((to, from, next) => {
+  // if (storage.get('token')!==null&&to.path === '/admin/articlemanage') {
+  //   console.log(storage.get('token'))
+  //   console.log(11111)
+  //   addRoutes()
+  // }
   document.title = to.meta.title
   next()
 })

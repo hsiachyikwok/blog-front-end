@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import prism from 'prismjs'
+//import prism from 'prismjs'
 import api from '@/api'
 import VueMarkdown from 'vue-markdown'
 import comment from './comment'

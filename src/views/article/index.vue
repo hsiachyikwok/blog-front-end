@@ -23,7 +23,7 @@ import comment from './comment'
 export default {
   data() {
     return {
-      content: ""
+      content: '',
     }
   },
   components: {
@@ -31,6 +31,7 @@ export default {
     comment,
   },
   mounted() {
+
     var id = this.$router.currentRoute.query.id
     api.article.getArticle(id).then(res => {
       this.content = res.body.content

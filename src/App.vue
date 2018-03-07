@@ -12,24 +12,24 @@ export default {
 
 <style>
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50; */
+  color: #2c3e50;
 }
 body{
 word-wrap: break-word;
 }
 
-.card__text{
-  /* overflow: hidden;
+/* .card__text{
+  overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
 padding: 16px 16px 0;
 width: 100%;
-margin-bottom: 16px; */
-}
+margin-bottom: 16px;
+} */
 </style>

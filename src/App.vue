@@ -22,6 +22,14 @@ body{
 word-wrap: break-word;
 }
 
+
+img {
+  border-style: none;
+  width: 100%
+}
+
+
+
 /* .card__text{
   overflow: hidden;
 text-overflow: ellipsis;
